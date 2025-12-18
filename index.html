@@ -499,20 +499,20 @@
 
                 <!-- Form -->
                 <div class="glass-panel p-8 rounded-2xl border border-cyber-border" data-aos="fade-left">
-                    <form class="space-y-6" onsubmit="event.preventDefault(); window.location.href='mailto:nexussolution9030@gmail.com?subject=New Inquiry from Website&body=Hi Nexus Team,'">
+                    <form class="space-y-6" onsubmit="sendMail(event)">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div class="space-y-2">
                                 <label class="text-sm text-gray-400">Name</label>
-                                <input type="text" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="John Doe">
+                                <input type="text" id="name" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="John Doe" required>
                             </div>
                             <div class="space-y-2">
                                 <label class="text-sm text-gray-400">Company</label>
-                                <input type="text" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Your Business Ltd">
+                                <input type="text" id="company" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Your Business Ltd">
                             </div>
                         </div>
                         <div class="space-y-2">
                             <label class="text-sm text-gray-400">Service Interested In</label>
-                            <select class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition-colors">
+                            <select id="service" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition-colors">
                                 <option>POS System / BMS Development</option>
                                 <option>Web Development</option>
                                 <option>Video Editing / Design</option>
@@ -522,7 +522,7 @@
                         </div>
                         <div class="space-y-2">
                             <label class="text-sm text-gray-400">Message</label>
-                            <textarea rows="4" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Tell us about your project..."></textarea>
+                            <textarea id="message" rows="4" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Tell us about your project..." required></textarea>
                         </div>
                         <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 rounded-lg hover:shadow-lg hover:shadow-blue-600/30 transition-all transform hover:-translate-y-1">
                             Send Message
@@ -600,6 +600,27 @@
             } else {
                 menu.classList.add('translate-x-full');
             }
+        }
+
+        // Email Handling Function
+        function sendMail(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const company = document.getElementById('company').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Construct email body
+            const subject = `New Inquiry: ${service} - ${name}`;
+            const body = `Name: ${name}%0D%0ACompany: ${company}%0D%0AService: ${service}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+            
+            // Show feedback
+            alert("Opening your email client to send the message...");
+            
+            // Open mail client
+            window.location.href = `mailto:nexussolution9030@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
         }
     </script>
 </body>
