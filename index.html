@@ -37,7 +37,6 @@
                         }
                     },
                     backgroundImage: {
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                         'hero-mesh': "url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%231f1f2e\\' fill-opacity=\\'0.4\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
                     }
                 }
@@ -50,7 +49,6 @@
             --glass-border: rgba(255, 255, 255, 0.08);
             --glass-bg: rgba(10, 10, 15, 0.6);
         }
-
         body {
             background-color: #030305;
             background-image: 
@@ -59,38 +57,28 @@
             color: #e2e8f0;
             overflow-x: hidden;
         }
-
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
         }
-
         .page-section {
             display: none;
             animation: fadeIn 0.5s ease-in-out forwards;
         }
-        
         .page-section.active {
             display: block;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #030305; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-
         .text-gradient-blue {
             background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
         .card-hover-effect {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -99,8 +87,6 @@
             border-color: rgba(59, 130, 246, 0.3);
             box-shadow: 0 0 30px rgba(59, 130, 246, 0.1);
         }
-
-        #mobile-menu { transition: transform 0.3s ease-in-out; }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-blue-500/30 selection:text-blue-200">
@@ -141,7 +127,7 @@
         </div>
     </nav>
 
-    <div id="mobile-menu" class="fixed inset-0 bg-cyber-dark z-40 transform translate-x-full pt-24 px-6">
+    <div id="mobile-menu" class="fixed inset-0 bg-cyber-dark z-40 transform translate-x-full pt-24 px-6 transition-transform duration-300">
         <div class="flex flex-col gap-6 text-center">
             <button onclick="switchTab('home'); toggleMobileMenu()" class="text-2xl font-display font-bold text-white">Home</button>
             <button onclick="switchTab('design'); toggleMobileMenu()" class="text-2xl font-display font-bold text-gray-400">Design</button>
@@ -152,23 +138,19 @@
     </div>
 
     <main class="min-h-screen pt-28 pb-12 relative z-10 container mx-auto px-6">
-
         <section id="home" class="page-section active">
             <div class="flex flex-col items-center text-center max-w-4xl mx-auto mt-10 md:mt-20" data-aos="fade-up">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wider mb-6">
                     <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
                     OPEN FOR NEW PROJECTS
                 </div>
-                
                 <h1 class="font-display text-5xl md:text-8xl font-bold leading-tight mb-6">
                     Design. Develop. <br>
                     <span class="text-gradient-blue">Defend.</span>
                 </h1>
-                
                 <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-                    We architect robust software, craft stunning visuals, and secure digital infrastructures.
+                    We are Nexus Solution. We architect robust software, craft stunning visuals, and secure digital infrastructures for modern enterprises.
                 </p>
-
                 <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                     <button onclick="switchTab('develop')" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2">
                         View Portfolio <i data-lucide="layers" class="w-5 h-5"></i>
@@ -197,11 +179,96 @@
                     <div class="text-sm text-gray-500 uppercase tracking-wider">Secure Code</div>
                 </div>
             </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mt-20">
+                <div class="glass-panel p-8 rounded-2xl card-hover-effect group cursor-pointer" onclick="switchTab('design')">
+                    <div class="w-14 h-14 rounded-lg bg-pink-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="palette" class="w-7 h-7 text-pink-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-3">Creative Design</h3>
+                    <p class="text-gray-400 mb-6">UI/UX, Video Editing, and Brand Identity. We make your business look premium.</p>
+                    <div class="flex items-center text-pink-400 font-medium text-sm">Explore Design <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i></div>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl card-hover-effect group cursor-pointer" onclick="switchTab('develop')">
+                    <div class="w-14 h-14 rounded-lg bg-blue-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="code-2" class="w-7 h-7 text-blue-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-3">Development</h3>
+                    <p class="text-gray-400 mb-6">POS Systems, BMS, and Custom Python Solutions. Scalable architecture.</p>
+                    <div class="flex items-center text-blue-400 font-medium text-sm">Explore Develop <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i></div>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl card-hover-effect group cursor-pointer" onclick="switchTab('defend')">
+                    <div class="w-14 h-14 rounded-lg bg-green-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="shield-check" class="w-7 h-7 text-green-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-3">Cyber Security</h3>
+                    <p class="text-gray-400 mb-6">Penetration Testing and Ethical Hacking. Defensive strength through offensive security.</p>
+                    <div class="flex items-center text-green-400 font-medium text-sm">Explore Defend <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i></div>
+                </div>
+            </div>
         </section>
 
-        <section id="design" class="page-section"><h2 class="text-4xl font-bold text-white mb-8">Creative Design</h2><p>Design content goes here...</p></section>
-        <section id="develop" class="page-section"><h2 class="text-4xl font-bold text-white mb-8">System Development</h2><p>Development content goes here...</p></section>
-        <section id="defend" class="page-section"><h2 class="text-4xl font-bold text-white mb-8">Cyber Security</h2><p>Security content goes here...</p></section>
+        <section id="design" class="page-section">
+            <div class="mb-12">
+                <span class="text-pink-500 font-mono text-sm tracking-wider uppercase">Visual Engineering</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mt-2 mb-4">Design Services</h2>
+                <p class="text-gray-400 max-w-2xl">From cinematic video production to pixel-perfect UI/UX.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-cyber-card border border-cyber-border p-6 rounded-xl hover:border-pink-500/50 transition-colors">
+                    <i data-lucide="video" class="w-8 h-8 text-pink-500 mb-4"></i>
+                    <h4 class="text-lg font-bold text-white mb-2">Video Editing</h4>
+                    <p class="text-sm text-gray-400">Premiere Pro, After Effects, DaVinci Resolve.</p>
+                </div>
+                <div class="bg-cyber-card border border-cyber-border p-6 rounded-xl hover:border-pink-500/50 transition-colors">
+                    <i data-lucide="instagram" class="w-8 h-8 text-pink-500 mb-4"></i>
+                    <h4 class="text-lg font-bold text-white mb-2">Social Design</h4>
+                    <p class="text-sm text-gray-400">Viral content design for Instagram & TikTok.</p>
+                </div>
+                <div class="bg-cyber-card border border-cyber-border p-6 rounded-xl hover:border-pink-500/50 transition-colors">
+                    <i data-lucide="layout-template" class="w-8 h-8 text-pink-500 mb-4"></i>
+                    <h4 class="text-lg font-bold text-white mb-2">UI/UX</h4>
+                    <p class="text-sm text-gray-400">Modern interfaces in Figma & Adobe XD.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="develop" class="page-section">
+            <div class="mb-12">
+                <span class="text-blue-500 font-mono text-sm tracking-wider uppercase">System Architecture</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mt-2 mb-4">Development Services</h2>
+                <p class="text-gray-400 max-w-2xl">Specializing in POS and BMS for retail, medical, and hospitality.</p>
+            </div>
+            <div class="glass-panel p-8 rounded-xl border-l-4 border-blue-500 mb-10">
+                <h4 class="text-lg font-bold text-white mb-4">Our Technology Stack</h4>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-3 py-1 bg-blue-900/30 text-blue-300 rounded border border-blue-500/30 text-sm">Python</span>
+                    <span class="px-3 py-1 bg-blue-900/30 text-blue-300 rounded border border-blue-500/30 text-sm">Django</span>
+                    <span class="px-3 py-1 bg-blue-900/30 text-blue-300 rounded border border-blue-500/30 text-sm">React.js</span>
+                    <span class="px-3 py-1 bg-blue-900/30 text-blue-300 rounded border border-blue-500/30 text-sm">PostgreSQL</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="defend" class="page-section">
+            <div class="mb-12">
+                <span class="text-green-500 font-mono text-sm tracking-wider uppercase">Cyber Operations</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mt-2 mb-4">Security Services</h2>
+                <p class="text-gray-400 max-w-2xl">We identify weak points before they are exploited.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-cyber-card border border-cyber-border p-8 rounded-2xl">
+                    <i data-lucide="lock" class="w-10 h-10 text-green-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">Penetration Testing</h3>
+                    <p class="text-gray-400">Web app & Network security audits.</p>
+                </div>
+                <div class="bg-cyber-card border border-cyber-border p-8 rounded-2xl">
+                    <i data-lucide="terminal" class="w-10 h-10 text-orange-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">Ethical Hacking</h3>
+                    <p class="text-gray-400">Advanced vulnerability assessments.</p>
+                </div>
+            </div>
+        </section>
 
         <section id="contact" class="page-section">
             <div class="grid lg:grid-cols-2 gap-12 mt-8">
@@ -209,31 +276,65 @@
                     <span class="text-blue-500 font-mono text-sm tracking-wider uppercase">Get In Touch</span>
                     <h2 class="text-4xl md:text-5xl font-display font-bold mt-2 mb-6">Let's Build Something<br>Great Together.</h2>
                     
-                    <div class="space-y-6 mt-10">
+                    <div class="space-y-6">
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400"><i data-lucide="mail" class="w-5 h-5"></i></div>
-                            <div><p class="text-sm text-gray-500">Email Us</p><a href="mailto:nexussolution9030@gmail.com" class="text-white hover:text-blue-400">nexussolution9030@gmail.com</a></div>
+                            <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Email Us</p>
+                                <a href="mailto:info@nexussolution.space" class="text-white hover:text-blue-400 transition-colors">info@nexussolution.space</a>
+                            </div>
                         </div>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-400"><i data-lucide="phone" class="w-5 h-5"></i></div>
-                            <div><p class="text-sm text-gray-500">Call / WhatsApp</p><a href="https://wa.me/923156329975" class="text-white hover:text-green-400">03156329975</a></div>
+                            <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400">
+                                <i data-lucide="twitter" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">X (Twitter)</p>
+                                <a href="https://x.com/Nexus_Solution_" target="_blank" class="text-white hover:text-blue-400 transition-colors">@Nexus_Solution_</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-pink-500/10 flex items-center justify-center text-pink-400">
+                                <i data-lucide="instagram" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Instagram</p>
+                                <a href="https://www.instagram.com/ne_ussolution?igsh=MXE5dno3b2ZuNXJucQ==" target="_blank" class="text-white hover:text-pink-400 transition-colors">@ne_ussolution</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-400">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">WhatsApp</p>
+                                <a href="https://wa.me/923156329975" class="text-white hover:text-green-400 transition-colors">03156329975</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass-panel p-8 rounded-2xl border border-cyber-border" data-aos="fade-left">
+                <div class="glass-panel p-8 rounded-2xl border border-cyber-border">
                     <form class="space-y-6" onsubmit="sendMail(event)">
                         <div class="grid md:grid-cols-2 gap-6">
-                            <div class="space-y-2"><label class="text-sm text-gray-400">Name</label><input type="text" id="name" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:border-blue-500 outline-none" placeholder="John Doe" required></div>
-                            <div class="space-y-2"><label class="text-sm text-gray-400">Company</label><input type="text" id="company" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:border-blue-500 outline-none" placeholder="Your Business"></div>
+                            <div class="space-y-2">
+                                <label class="text-sm text-gray-400">Name</label>
+                                <input type="text" id="name" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:outline-none focus:border-blue-500" placeholder="John Doe" required>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm text-gray-400">Company</label>
+                                <input type="text" id="company" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:outline-none focus:border-blue-500" placeholder="Your Business">
+                            </div>
                         </div>
-                        <div class="space-y-2"><label class="text-sm text-gray-400">Service</label>
-                            <select id="service" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white outline-none">
-                                <option>POS System / BMS Development</option><option>Web Development</option><option>Video Editing / Design</option><option>Ethical Hacking</option>
-                            </select>
+                        <div class="space-y-2">
+                            <label class="text-sm text-gray-400">Message</label>
+                            <textarea id="message" rows="4" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:outline-none focus:border-blue-500" required></textarea>
                         </div>
-                        <div class="space-y-2"><label class="text-sm text-gray-400">Message</label><textarea id="message" rows="4" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:border-blue-500 outline-none" placeholder="Tell us about your project..." required></textarea></div>
-                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 rounded-lg hover:shadow-lg transition-all">Send Message</button>
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 rounded-lg hover:shadow-lg transition-all transform hover:-translate-y-1">
+                            Send Message
+                        </button>
                     </form>
                 </div>
             </div>
@@ -241,27 +342,18 @@
     </main>
 
     <footer class="border-t border-cyber-border/50 bg-cyber-card py-12 relative z-10">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-3">
                 <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center">
                     <i data-lucide="hexagon" class="text-white w-5 h-5"></i>
                 </div>
-                <span class="font-display font-bold text-white uppercase tracking-wider">Nexus Solution</span>
+                <span class="font-display font-bold text-white">NEXUS SOLUTION</span>
             </div>
-
-            <div class="flex items-center gap-6">
-                <a href="https://x.com/Nexus_Solution_" target="_blank" class="text-gray-400 hover:text-white transition-all transform hover:scale-110">
-                    <i data-lucide="twitter" class="w-6 h-6"></i>
-                </a>
-                <a href="https://www.instagram.com/ne_ussolution?igsh=MXE5dno3b2ZuNXJucQ==" target="_blank" class="text-gray-400 hover:text-pink-500 transition-all transform hover:scale-110">
-                    <i data-lucide="instagram" class="w-6 h-6"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/ibrahim-devep" target="_blank" class="text-gray-400 hover:text-blue-500 transition-all transform hover:scale-110">
-                    <i data-lucide="linkedin" class="w-6 h-6"></i>
-                </a>
-                <a href="https://wa.me/923156329975" target="_blank" class="text-gray-400 hover:text-green-500 transition-all transform hover:scale-110">
-                    <i data-lucide="message-circle" class="w-6 h-6"></i>
-                </a>
+            
+            <div class="flex gap-4">
+                <a href="https://x.com/Nexus_Solution_" target="_blank" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                <a href="https://www.instagram.com/ne_ussolution?igsh=MXE5dno3b2ZuNXJucQ==" target="_blank" class="text-gray-500 hover:text-pink-500 transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="https://www.linkedin.com/in/ibrahim-devep" target="_blank" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
             </div>
 
             <p class="text-gray-500 text-sm">© 2026 Nexus Solution. All rights reserved.</p>
@@ -280,9 +372,10 @@
                 setTimeout(() => AOS.refresh(), 100);
             }
             document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.toggle('text-white', btn.getAttribute('data-target') === tabId);
-                btn.classList.toggle('bg-white/10', btn.getAttribute('data-target') === tabId);
-                btn.classList.toggle('text-gray-400', btn.getAttribute('data-target') !== tabId);
+                const isTarget = btn.getAttribute('data-target') === tabId;
+                btn.classList.toggle('text-white', isTarget);
+                btn.classList.toggle('bg-white/10', isTarget);
+                btn.classList.toggle('text-gray-400', !isTarget);
             });
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -294,9 +387,10 @@
         function sendMail(e) {
             e.preventDefault();
             const name = document.getElementById('name').value;
-            const service = document.getElementById('service').value;
             const message = document.getElementById('message').value;
-            window.location.href = `mailto:nexussolution9030@gmail.com?subject=Inquiry: ${service}&body=Client: ${name}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+            const subject = encodeURIComponent(`Inquiry from ${name}`);
+            const body = encodeURIComponent(message);
+            window.location.href = `mailto:info@nexussolution.space?subject=${subject}&body=${body}`;
         }
     </script>
 </body>
