@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Solution | Premium Enterprise Agency</title>
+    <title>Nexus Solution | Enterprise Technology Agency</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -23,13 +25,20 @@
                         display: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
-                        brand: {
-                            black: '#000000',
-                            dark: '#0A0A0A',
-                            gray: '#1A1A1A',
-                            light: '#F5F5F5',
-                            accent: '#FFFFFF'
+                        cyber: {
+                            dark: '#030305',
+                            card: '#0A0A0F',
+                            border: '#1F1F2E',
+                            accent: '#3B82F6',
+                            purple: '#8B5CF6',
+                            success: '#10B981',
+                            warning: '#F59E0B',
+                            danger: '#EF4444'
                         }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'hero-mesh': "url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%231f1f2e\\' fill-opacity=\\'0.4\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
                     }
                 }
             }
@@ -37,213 +46,257 @@
     </script>
 
     <style>
+        :root {
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(10, 10, 15, 0.6);
+        }
+
         body {
-            background-color: #000000;
-            color: #FFFFFF;
+            background-color: #030305;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08), transparent 25%);
+            color: #e2e8f0;
             overflow-x: hidden;
         }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .page-section { display: none; animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .page-section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        
-        .nav-link { position: relative; }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px; left: 0;
-            width: 0; height: 1px;
-            background: #FFF;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after { width: 100%; }
 
-        .premium-border { border: 1px solid rgba(255,255,255,0.1); transition: all 0.4s ease; }
-        .premium-border:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.03); }
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .page-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030305; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+
+        .text-gradient-blue {
+            background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-hover-effect {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.1);
+        }
+
+        #mobile-menu { transition: transform 0.3s ease-in-out; }
     </style>
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased selection:bg-blue-500/30 selection:text-blue-200">
 
-    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-white/5">
-        <div class="container mx-auto px-6 py-6 flex items-center justify-between">
-            <div class="flex items-center gap-3 cursor-pointer group" onclick="switchTab('home')">
-                <div class="w-10 h-10 bg-white flex items-center justify-center rounded-none group-hover:rotate-45 transition-transform duration-500">
-                    <i data-lucide="box" class="text-black w-6 h-6"></i>
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-b-cyber-border/50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                        <i data-lucide="hexagon" class="text-white w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-display font-bold text-xl tracking-tight text-white leading-none">NEXUS</h1>
+                        <p class="text-[10px] uppercase tracking-[0.2em] text-blue-400 font-semibold mt-1">Solution</p>
+                    </div>
                 </div>
-                <div>
-                    <h1 class="font-display font-bold text-xl tracking-tighter text-white">NEXUS</h1>
-                    <p class="text-[10px] uppercase tracking-[0.4em] text-gray-500 leading-none">Solution</p>
-                </div>
-            </div>
 
-            <div class="hidden md:flex items-center gap-10">
-                <button onclick="switchTab('home')" class="nav-link text-[11px] uppercase tracking-[0.2em] font-semibold">Home</button>
-                <button onclick="switchTab('design')" class="nav-link text-[11px] uppercase tracking-[0.2em] font-semibold text-gray-400 hover:text-white">Design</button>
-                <button onclick="switchTab('develop')" class="nav-link text-[11px] uppercase tracking-[0.2em] font-semibold text-gray-400 hover:text-white">Develop</button>
-                <button onclick="switchTab('defend')" class="nav-link text-[11px] uppercase tracking-[0.2em] font-semibold text-gray-400 hover:text-white">Defend</button>
-                <button onclick="switchTab('contact')" class="border border-white/20 px-6 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-white hover:text-black transition-all">Get in Touch</button>
+                <div class="hidden md:flex items-center gap-1 bg-cyber-card/50 p-1 rounded-full border border-cyber-border">
+                    <button onclick="switchTab('home')" class="nav-btn px-5 py-2 rounded-full text-sm font-medium transition-all text-white bg-white/10" data-target="home">Home</button>
+                    <button onclick="switchTab('design')" class="nav-btn px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5" data-target="design">Design</button>
+                    <button onclick="switchTab('develop')" class="nav-btn px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5" data-target="develop">Develop</button>
+                    <button onclick="switchTab('defend')" class="nav-btn px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5" data-target="defend">Defend</button>
+                </div>
+
+                <div class="hidden md:flex">
+                    <button onclick="switchTab('contact')" class="group relative px-6 py-2.5 bg-white text-cyber-dark font-semibold rounded-lg overflow-hidden transition-all hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                        <span class="relative flex items-center gap-2">
+                            Get a Quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </span>
+                    </button>
+                </div>
+
+                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
             </div>
-            
-            <button class="md:hidden" onclick="toggleMobileMenu()"><i data-lucide="menu" class="w-6 h-6"></i></button>
         </div>
     </nav>
 
-    <div id="mobile-menu" class="fixed inset-0 bg-black z-[60] transform translate-x-full transition-transform duration-500 flex flex-col justify-center px-12">
-        <button class="absolute top-8 right-8" onclick="toggleMobileMenu()"><i data-lucide="x" class="w-8 h-8"></i></button>
-        <div class="flex flex-col gap-10">
-            <button onclick="switchTab('home'); toggleMobileMenu()" class="text-5xl font-display font-bold text-left">Home</button>
-            <button onclick="switchTab('design'); toggleMobileMenu()" class="text-5xl font-display font-bold text-left text-gray-600">Design</button>
-            <button onclick="switchTab('develop'); toggleMobileMenu()" class="text-5xl font-display font-bold text-left text-gray-600">Develop</button>
-            <button onclick="switchTab('defend'); toggleMobileMenu()" class="text-5xl font-display font-bold text-left text-gray-600 text-green-500">Defend</button>
+    <div id="mobile-menu" class="fixed inset-0 bg-cyber-dark z-40 transform translate-x-full pt-24 px-6">
+        <div class="flex flex-col gap-6 text-center">
+            <button onclick="switchTab('home'); toggleMobileMenu()" class="text-2xl font-display font-bold text-white">Home</button>
+            <button onclick="switchTab('design'); toggleMobileMenu()" class="text-2xl font-display font-bold text-gray-400">Design</button>
+            <button onclick="switchTab('develop'); toggleMobileMenu()" class="text-2xl font-display font-bold text-gray-400">Develop</button>
+            <button onclick="switchTab('defend'); toggleMobileMenu()" class="text-2xl font-display font-bold text-gray-400">Defend</button>
+            <button onclick="switchTab('contact'); toggleMobileMenu()" class="text-2xl font-display font-bold text-blue-400">Contact Us</button>
         </div>
     </div>
 
-    <main class="min-h-screen pt-44 pb-20 container mx-auto px-6">
-        
+    <main class="min-h-screen pt-28 pb-12 relative z-10 container mx-auto px-6">
+
         <section id="home" class="page-section active">
-            <div class="max-w-6xl" data-aos="fade-up">
-                <div class="flex items-center gap-2 mb-8">
-                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
-                    <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400">Next Gen Technology Agency</span>
+            <div class="flex flex-col items-center text-center max-w-4xl mx-auto mt-10 md:mt-20" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wider mb-6">
+                    <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                    OPEN FOR NEW PROJECTS
                 </div>
-                <h1 class="font-display text-7xl md:text-[11rem] font-bold leading-[0.85] mb-12 tracking-tighter">
-                    CRAFTING <br> <span class="text-gray-700">LEGACIES.</span>
+                
+                <h1 class="font-display text-5xl md:text-8xl font-bold leading-tight mb-6">
+                    Design. Develop. <br>
+                    <span class="text-gradient-blue">Defend.</span>
                 </h1>
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-12">
-                    <p class="text-gray-400 text-xl md:text-2xl max-w-xl font-light leading-relaxed">
-                        We don't just build websites. We architect high-performance digital ecosystems for the modern enterprise.
-                    </p>
-                    <div class="flex gap-4">
-                        <button onclick="switchTab('contact')" class="bg-white text-black px-12 py-5 font-bold uppercase text-[11px] tracking-widest hover:bg-gray-200 transition-all">Start Project</button>
-                    </div>
+                
+                <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                    We architect robust software, craft stunning visuals, and secure digital infrastructures.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                    <button onclick="switchTab('develop')" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2">
+                        View Portfolio <i data-lucide="layers" class="w-5 h-5"></i>
+                    </button>
+                    <button onclick="switchTab('contact')" class="px-8 py-4 glass-panel hover:bg-white/5 text-white rounded-xl font-semibold transition-all border border-gray-700 flex items-center justify-center gap-2">
+                        Start a Project
+                    </button>
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-4 gap-1 mt-40 border-t border-white/5">
-                <div class="py-16 pr-10 border-r border-white/5">
-                    <p class="text-gray-600 font-mono text-[10px] mb-4">01 // UI.UX</p>
-                    <h3 class="text-xl font-bold">Immersive Design</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 py-8 border-y border-cyber-border/50" data-aos="fade-up">
+                <div class="text-center">
+                    <div class="text-3xl font-display font-bold text-white mb-1">50+</div>
+                    <div class="text-sm text-gray-500 uppercase tracking-wider">Projects Done</div>
                 </div>
-                <div class="py-16 px-10 border-r border-white/5">
-                    <p class="text-gray-600 font-mono text-[10px] mb-4">02 // ARCH</p>
-                    <h3 class="text-xl font-bold">Custom Software</h3>
+                <div class="text-center">
+                    <div class="text-3xl font-display font-bold text-white mb-1">99%</div>
+                    <div class="text-sm text-gray-500 uppercase tracking-wider">Client Satisfaction</div>
                 </div>
-                <div class="py-16 px-10 border-r border-white/5">
-                    <p class="text-gray-600 font-mono text-[10px] mb-4">03 // SEC</p>
-                    <h3 class="text-xl font-bold">Cyber Defense</h3>
+                <div class="text-center">
+                    <div class="text-3xl font-display font-bold text-white mb-1">24/7</div>
+                    <div class="text-sm text-gray-500 uppercase tracking-wider">Support Active</div>
                 </div>
-                <div class="py-16 pl-10">
-                    <p class="text-gray-600 font-mono text-[10px] mb-4">04 // DATA</p>
-                    <h3 class="text-xl font-bold">Cloud Scale</h3>
+                <div class="text-center">
+                    <div class="text-3xl font-display font-bold text-white mb-1">100%</div>
+                    <div class="text-sm text-gray-500 uppercase tracking-wider">Secure Code</div>
                 </div>
             </div>
         </section>
 
+        <section id="design" class="page-section"><h2 class="text-4xl font-bold text-white mb-8">Creative Design</h2><p>Design content goes here...</p></section>
+        <section id="develop" class="page-section"><h2 class="text-4xl font-bold text-white mb-8">System Development</h2><p>Development content goes here...</p></section>
+        <section id="defend" class="page-section"><h2 class="text-4xl font-bold text-white mb-8">Cyber Security</h2><p>Security content goes here...</p></section>
+
         <section id="contact" class="page-section">
-            <div class="grid lg:grid-cols-2 gap-24">
-                <div>
-                    <h2 class="text-7xl font-display font-bold mb-12 leading-none">Let's <br>Talk.</h2>
-                    <div class="space-y-12">
-                        <div>
-                            <p class="text-gray-500 uppercase text-[10px] tracking-widest mb-3">Email</p>
-                            <a href="mailto:info@nexussolution.space" class="text-3xl font-light hover:text-gray-400 transition-colors">info@nexussolution.space</a>
+            <div class="grid lg:grid-cols-2 gap-12 mt-8">
+                <div data-aos="fade-right">
+                    <span class="text-blue-500 font-mono text-sm tracking-wider uppercase">Get In Touch</span>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mt-2 mb-6">Let's Build Something<br>Great Together.</h2>
+                    
+                    <div class="space-y-6 mt-10">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400"><i data-lucide="mail" class="w-5 h-5"></i></div>
+                            <div><p class="text-sm text-gray-500">Email Us</p><a href="mailto:nexussolution9030@gmail.com" class="text-white hover:text-blue-400">nexussolution9030@gmail.com</a></div>
                         </div>
-                        <div>
-                            <p class="text-gray-500 uppercase text-[10px] tracking-widest mb-3">WhatsApp</p>
-                            <a href="https://wa.me/923156329975" class="text-3xl font-light hover:text-gray-400 transition-colors">+92 315 6329975</a>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-400"><i data-lucide="phone" class="w-5 h-5"></i></div>
+                            <div><p class="text-sm text-gray-500">Call / WhatsApp</p><a href="https://wa.me/923156329975" class="text-white hover:text-green-400">03156329975</a></div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="glass-panel p-12 border border-white/10">
-                    <form class="space-y-8" onsubmit="sendMail(event)">
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <input type="text" id="name" placeholder="NAME" class="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-white transition-colors text-xs tracking-widest" required>
-                            <input type="text" id="company" placeholder="COMPANY" class="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-white transition-colors text-xs tracking-widest">
+
+                <div class="glass-panel p-8 rounded-2xl border border-cyber-border" data-aos="fade-left">
+                    <form class="space-y-6" onsubmit="sendMail(event)">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-2"><label class="text-sm text-gray-400">Name</label><input type="text" id="name" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:border-blue-500 outline-none" placeholder="John Doe" required></div>
+                            <div class="space-y-2"><label class="text-sm text-gray-400">Company</label><input type="text" id="company" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:border-blue-500 outline-none" placeholder="Your Business"></div>
                         </div>
-                        <select id="service" class="w-full bg-black border-b border-white/10 py-4 focus:outline-none focus:border-white text-xs tracking-widest appearance-none">
-                            <option>SYSTEM DEVELOPMENT</option>
-                            <option>CYBER SECURITY AUDIT</option>
-                            <option>BRAND ARCHITECTURE</option>
-                        </select>
-                        <textarea id="message" rows="4" placeholder="HOW CAN WE HELP?" class="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-white text-xs tracking-widest" required></textarea>
-                        <button type="submit" class="w-full bg-white text-black py-6 font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-gray-300 transition-all">Send Inquiry</button>
+                        <div class="space-y-2"><label class="text-sm text-gray-400">Service</label>
+                            <select id="service" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white outline-none">
+                                <option>POS System / BMS Development</option><option>Web Development</option><option>Video Editing / Design</option><option>Ethical Hacking</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2"><label class="text-sm text-gray-400">Message</label><textarea id="message" rows="4" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:border-blue-500 outline-none" placeholder="Tell us about your project..." required></textarea></div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 rounded-lg hover:shadow-lg transition-all">Send Message</button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="border-t border-white/5 py-24 bg-black relative z-10">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
-                <div>
-                    <h2 class="text-3xl font-display font-bold tracking-tighter">NEXUS SOLUTION</h2>
-                    <p class="text-gray-600 mt-3 text-sm font-light tracking-wide italic">Architecting digital excellence for the global enterprise.</p>
+    <footer class="border-t border-cyber-border/50 bg-cyber-card py-12 relative z-10">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center">
+                    <i data-lucide="hexagon" class="text-white w-5 h-5"></i>
                 </div>
-                
-                <div class="flex flex-wrap gap-10">
-                    <a href="https://x.com/Nexus_Solution_" target="_blank" class="flex items-center gap-3 text-gray-500 hover:text-white transition-all uppercase text-[10px] tracking-[0.2em] font-bold">
-                        <i data-lucide="twitter" class="w-4 h-4"></i> Twitter / X
-                    </a>
-                    <a href="https://www.instagram.com/ne_ussolution?igsh=MXE5dno3b2ZuNXJucQ==" target="_blank" class="flex items-center gap-3 text-gray-500 hover:text-white transition-all uppercase text-[10px] tracking-[0.2em] font-bold">
-                        <i data-lucide="instagram" class="w-4 h-4"></i> Instagram
-                    </a>
-                    <a href="https://www.linkedin.com/in/ibrahim-devep" target="_blank" class="flex items-center gap-3 text-gray-500 hover:text-white transition-all uppercase text-[10px] tracking-[0.2em] font-bold">
-                        <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn
-                    </a>
-                </div>
+                <span class="font-display font-bold text-white uppercase tracking-wider">Nexus Solution</span>
             </div>
-            
-            <div class="mt-32 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] text-gray-700 uppercase tracking-[0.4em] font-bold">
-                <div class="flex gap-8">
-                    <span>© 2026 Nexus Solution</span>
-                    <span>All Rights Reserved</span>
-                </div>
-                <div class="flex gap-8">
-                    <span>Built in Pakistan</span>
-                    <span>Global Operations</span>
-                </div>
+
+            <div class="flex items-center gap-6">
+                <a href="https://x.com/Nexus_Solution_" target="_blank" class="text-gray-400 hover:text-white transition-all transform hover:scale-110">
+                    <i data-lucide="twitter" class="w-6 h-6"></i>
+                </a>
+                <a href="https://www.instagram.com/ne_ussolution?igsh=MXE5dno3b2ZuNXJucQ==" target="_blank" class="text-gray-400 hover:text-pink-500 transition-all transform hover:scale-110">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ibrahim-devep" target="_blank" class="text-gray-400 hover:text-blue-500 transition-all transform hover:scale-110">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                </a>
+                <a href="https://wa.me/923156329975" target="_blank" class="text-gray-400 hover:text-green-500 transition-all transform hover:scale-110">
+                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                </a>
             </div>
+
+            <p class="text-gray-500 text-sm">© 2026 Nexus Solution. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // AOS Animation
-        AOS.init({ duration: 1200, once: true, easing: 'ease-out-cubic' });
-        
-        // Lucide Icons
+        AOS.init({ duration: 800, once: true });
         lucide.createIcons();
 
-        // Tab Switcher
         function switchTab(tabId) {
             document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
             const target = document.getElementById(tabId);
             if (target) {
                 target.classList.add('active');
-                AOS.refresh();
+                setTimeout(() => AOS.refresh(), 100);
             }
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.toggle('text-white', btn.getAttribute('data-target') === tabId);
+                btn.classList.toggle('bg-white/10', btn.getAttribute('data-target') === tabId);
+                btn.classList.toggle('text-gray-400', btn.getAttribute('data-target') !== tabId);
+            });
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Mobile Menu
         function toggleMobileMenu() {
             document.getElementById('mobile-menu').classList.toggle('translate-x-full');
         }
 
-        // Form Submission
         function sendMail(e) {
             e.preventDefault();
             const name = document.getElementById('name').value;
             const service = document.getElementById('service').value;
             const message = document.getElementById('message').value;
-            const subject = encodeURIComponent(`NEXUS INQUIRY: ${service} from ${name}`);
-            const body = encodeURIComponent(`Client: ${name}\nService: ${service}\n\nProject Details:\n${message}`);
-            window.location.href = `mailto:info@nexussolution.space?subject=${subject}&body=${body}`;
+            window.location.href = `mailto:nexussolution9030@gmail.com?subject=Inquiry: ${service}&body=Client: ${name}%0D%0A%0D%0AMessage:%0D%0A${message}`;
         }
     </script>
 </body>
