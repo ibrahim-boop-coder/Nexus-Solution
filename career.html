@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <title>Contact Nexus Solution | Start Your Tech Project</title>
-    <link rel="icon" type="image/png" href="logo.png?v=2">
-<meta name="description" content="Get a free consultation and security audit. Partner with Nexus Solution for your next big software, design, or cybersecurity project. Response under 12 hours.">
-
-<title>Careers at Nexus Solution | Join Our Elite Tech Team</title>
-<meta name="description" content="Shape the future of enterprise tech. Nexus Solution is hiring top-tier Python developers, UI/UX designers, and Cybersecurity analysts. Remote and global opportunities.">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Careers | Nexus Solution - Shape the Future with Us</title>
+    
+    <title>Careers at Nexus Solution | Join Our Elite Tech Team</title>
+    <meta name="description" content="Shape the future of enterprise tech. Nexus Solution is hiring top-tier Python developers, UI/UX designers, and Cybersecurity analysts. Remote and global opportunities.">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="icon" type="image/png" href="logo.png?v=2">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -76,12 +75,11 @@
 </head>
 <body class="font-sans antialiased selection:bg-blue-500/30 selection:text-blue-200">
 
-    <!-- NAVIGATION (Exact match to index.html) -->
     <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-b-cyber-border/50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <a href="index.html" class="flex items-center gap-3 cursor-pointer">
-                   <img src="logo.png" alt="Nexus Solution Logo" class="w-12 h-12 object-contain">
+                    <img src="logo.png" alt="Nexus Solution Logo" class="w-12 h-12 object-contain">
                     <div>
                         <h1 class="font-display font-bold text-xl tracking-tight text-white leading-none">NEXUS</h1>
                         <p class="text-[10px] uppercase tracking-[0.2em] text-blue-400 font-semibold mt-1">Solution</p>
@@ -93,15 +91,17 @@
                     <a href="design.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Design</a>
                     <a href="develop.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Develop</a>
                     <a href="defend.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Defend</a>
+                    <a href="career.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-white bg-white/10">Careers</a>
+                    <a href="blog.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Insights</a>
                 </div>
 
                 <div class="hidden md:flex">
-                    <button class="group relative px-6 py-2.5 bg-white text-cyber-dark font-semibold rounded-lg overflow-hidden transition-all hover:scale-105">
+                    <a href="contact.html" class="group relative px-6 py-2.5 bg-white text-cyber-dark font-semibold rounded-lg overflow-hidden transition-all hover:scale-105 inline-block">
                         <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity"></div>
                         <span class="relative flex items-center gap-2">
                             Get a Quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </span>
-                    </button>
+                    </a>
                 </div>
 
                 <button class="md:hidden text-white" onclick="toggleMobileMenu()">
@@ -111,19 +111,19 @@
         </div>
     </nav>
 
-    <!-- MOBILE MENU -->
     <div id="mobile-menu" class="fixed inset-0 bg-cyber-dark z-40 transform translate-x-full pt-24 px-6 transition-transform duration-300">
         <div class="flex flex-col gap-6 text-center">
             <a href="index.html" class="text-2xl font-display font-bold text-gray-400">Home</a>
             <a href="design.html" class="text-2xl font-display font-bold text-gray-400">Design</a>
             <a href="develop.html" class="text-2xl font-display font-bold text-gray-400">Develop</a>
             <a href="defend.html" class="text-2xl font-display font-bold text-gray-400">Defend</a>
-            <a href="#" class="text-2xl font-display font-bold text-blue-400">Contact Us</a>
+            <a href="career.html" class="text-2xl font-display font-bold text-white">Careers</a>
+            <a href="blog.html" class="text-2xl font-display font-bold text-gray-400">Insights</a>
+            <a href="contact.html" class="text-2xl font-display font-bold text-blue-400">Contact Us</a>
         </div>
     </div>
 
     <main class="pt-32 pb-20">
-        <!-- HERO SECTION -->
         <section class="container mx-auto px-6 mb-24 text-center">
             <div class="max-w-4xl mx-auto" data-aos="fade-up">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wider mb-6 uppercase">
@@ -139,7 +139,6 @@
             </div>
         </section>
 
-        <!-- PERKS -->
         <section class="container mx-auto px-6 mb-32">
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="glass-panel p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="0">
@@ -166,7 +165,6 @@
             </div>
         </section>
 
-        <!-- OPEN ROLES -->
         <section class="container mx-auto px-6 mb-32">
             <div class="flex items-center justify-between mb-12 border-b border-cyber-border pb-6">
                 <h2 class="font-display text-2xl font-bold uppercase tracking-widest text-white">Current Openings</h2>
@@ -174,7 +172,6 @@
             </div>
             
             <div class="grid gap-4">
-                <!-- Role Card 1 -->
                 <div class="glass-panel p-6 md:p-8 rounded-2xl group hover:border-blue-500/30 transition-all">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
                         <div>
@@ -186,13 +183,12 @@
                                 <span class="flex items-center gap-1"><i data-lucide="code" class="w-4 h-4"></i> React / Tailwind</span>
                             </div>
                         </div>
-                        <a href="mailto:hr@nexussolution.space?subject=Application for Senior Frontend Developer" class="px-8 py-3 bg-white text-cyber-dark font-bold rounded-xl hover:scale-105 transition-transform text-center">
+                        <a href="mailto:info@nexussolution.space?subject=Application for Senior Frontend Developer" class="px-8 py-3 bg-white text-cyber-dark font-bold rounded-xl hover:scale-105 transition-transform text-center">
                             Apply Now
                         </a>
                     </div>
                 </div>
 
-                <!-- Role Card 2 -->
                 <div class="glass-panel p-6 md:p-8 rounded-2xl group hover:border-blue-500/30 transition-all">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
                         <div>
@@ -204,13 +200,12 @@
                                 <span class="flex items-center gap-1"><i data-lucide="shield" class="w-4 h-4"></i> VAPT Specialist</span>
                             </div>
                         </div>
-                        <a href="mailto:hr@nexussolution.space?subject=Application for Cybersecurity Analyst" class="px-8 py-3 bg-white text-cyber-dark font-bold rounded-xl hover:scale-105 transition-transform text-center">
+                        <a href="mailto:info@nexussolution.space?subject=Application for Cybersecurity Analyst" class="px-8 py-3 bg-white text-cyber-dark font-bold rounded-xl hover:scale-105 transition-transform text-center">
                             Apply Now
                         </a>
                     </div>
                 </div>
 
-                <!-- Role Card 3 -->
                 <div class="glass-panel p-6 md:p-8 rounded-2xl group hover:border-blue-500/30 transition-all">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
                         <div>
@@ -222,7 +217,7 @@
                                 <span class="flex items-center gap-1"><i data-lucide="palette" class="w-4 h-4"></i> Figma Maestro</span>
                             </div>
                         </div>
-                        <a href="mailto:hr@nexussolution.space?subject=Application for UI Designer" class="px-8 py-3 bg-white text-cyber-dark font-bold rounded-xl hover:scale-105 transition-transform text-center">
+                        <a href="mailto:info@nexussolution.space?subject=Application for UI Designer" class="px-8 py-3 bg-white text-cyber-dark font-bold rounded-xl hover:scale-105 transition-transform text-center">
                             Apply Now
                         </a>
                     </div>
@@ -230,7 +225,6 @@
             </div>
         </section>
 
-        <!-- HIRING PROCESS -->
         <section class="container mx-auto px-6 mb-32">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-display font-bold text-white mb-4">Our Hiring Process</h2>
@@ -238,14 +232,13 @@
             </div>
 
             <div class="relative max-w-5xl mx-auto">
-                <!-- Desktop Timeline Line -->
                 <div class="hidden md:block absolute top-1/2 left-0 w-full h-px timeline-line -translate-y-1/2"></div>
                 
                 <div class="grid md:grid-cols-4 gap-8">
                     <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="0">
                         <div class="w-12 h-12 step-number rounded-full flex items-center justify-center text-white font-bold mx-auto mb-6 shadow-lg shadow-blue-500/20">1</div>
                         <h4 class="text-white font-bold mb-2 uppercase text-sm tracking-widest">Apply</h4>
-                        <p class="text-gray-500 text-xs">Submit your portfolio and experience to HR.</p>
+                        <p class="text-gray-500 text-xs">Submit your portfolio and experience.</p>
                     </div>
                     <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="100">
                         <div class="w-12 h-12 step-number rounded-full flex items-center justify-center text-white font-bold mx-auto mb-6 shadow-lg shadow-blue-500/20">2</div>
@@ -266,19 +259,17 @@
             </div>
         </section>
 
-        <!-- CTA SECTION -->
         <section class="container mx-auto px-6">
             <div class="glass-panel p-12 md:p-20 rounded-3xl text-center border-t-4 border-t-blue-500">
                 <h2 class="text-4xl font-display font-bold text-white mb-6">Don't see a perfect role?</h2>
                 <p class="text-gray-400 mb-10 max-w-xl mx-auto">We're always looking for brilliant minds. Send us your resume anyway and we'll keep you on our radar for future expansions.</p>
-                <a href="mailto:hr@nexussolution.space?subject=General Inquiry / Future Openings" class="px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:scale-105 transition-all inline-block shadow-xl shadow-blue-500/10">
+                <a href="mailto:info@nexussolution.space?subject=General Inquiry / Future Openings" class="px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:scale-105 transition-all inline-block shadow-xl shadow-blue-500/10">
                     Send General Application
                 </a>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER (Exact match to index.html) -->
     <footer class="border-t border-cyber-border/50 bg-cyber-card py-12 relative z-10">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-3">
@@ -294,7 +285,7 @@
                 <a href="https://www.linkedin.com/in/ibrahim-devep" target="_blank" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
             </div>
 
-            <p class="text-gray-500 text-sm">© 2026 Nexus Solution. All rights reserved.</p>
+            <p class="text-gray-500 text-sm">© 2026 Nexus Solution. Proudly operating from Pakistan. All rights reserved.</p>
         </div>
     </footer>
 
