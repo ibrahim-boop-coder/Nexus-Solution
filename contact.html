@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Nexus Solution - Let’s Build Something Great</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        cyber: {
+                            dark: '#030305',
+                            card: '#0A0A0F',
+                            border: '#1F1F2E',
+                            accent: '#3B82F6',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(10, 10, 15, 0.6);
+        }
+        body {
+            background-color: #030305;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08), transparent 25%);
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+        }
+        .form-input {
+            background: rgba(3, 3, 5, 0.5);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            border-color: #3B82F6;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+            outline: none;
+        }
+        .text-gradient-blue {
+            background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .faq-item[open] summary svg {
+            transform: rotate(180deg);
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-blue-500/30">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-b-cyber-border/50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                        <i data-lucide="hexagon" class="text-white w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-display font-bold text-xl tracking-tight text-white leading-none">NEXUS</h1>
+                        <p class="text-[10px] uppercase tracking-[0.2em] text-blue-400 font-semibold mt-1">Solution</p>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center gap-1 bg-cyber-card/50 p-1 rounded-full border border-cyber-border">
+                    <a href="index.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Home</a>
+                    <a href="design.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Design</a>
+                    <a href="develop.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Develop</a>
+                    <a href="defend.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Defend</a>
+                </div>
+
+                <div class="hidden md:flex">
+                    <button class="group relative px-6 py-2.5 bg-white text-cyber-dark font-semibold rounded-lg overflow-hidden transition-all hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                        <span class="relative flex items-center gap-2">
+                            Get a Quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </span>
+                    </button>
+                </div>
+
+                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="fixed inset-0 bg-cyber-dark z-40 transform translate-x-full pt-24 px-6 transition-transform duration-300">
+        <div class="flex flex-col gap-6 text-center">
+            <a href="index.html" class="text-2xl font-display font-bold text-gray-400">Home</a>
+            <a href="design.html" class="text-2xl font-display font-bold text-gray-400">Design</a>
+            <a href="develop.html" class="text-2xl font-display font-bold text-gray-400">Develop</a>
+            <a href="defend.html" class="text-2xl font-display font-bold text-gray-400">Defend</a>
+            <a href="contact.html" class="text-2xl font-display font-bold text-white">Contact Us</a>
+        </div>
+    </div>
+
+    <main class="pt-32 pb-20">
+        <!-- HERO SECTION -->
+        <section class="container mx-auto px-6 mb-20">
+            <div class="max-w-4xl" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wider mb-6 uppercase">
+                    Connect With Us
+                </div>
+                <h1 class="font-display text-5xl md:text-7xl font-bold leading-tight mb-8">
+                    Let’s Build Something <br>
+                    <span class="text-gradient-blue">Great Together.</span>
+                </h1>
+                <div class="flex items-center gap-2 text-green-400 font-mono text-sm mb-12">
+                    <i data-lucide="clock" class="w-4 h-4"></i>
+                    Response time: Under 12 hours
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT GRID -->
+        <section class="container mx-auto px-6 mb-32">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- SMART FORM -->
+                <div class="glass-panel p-8 md:p-12 rounded-3xl" data-aos="fade-right">
+                    <form class="space-y-6" onsubmit="handleSubmit(event)">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs font-mono text-gray-500 uppercase tracking-widest">Your Name</label>
+                                <input type="text" id="name" required class="w-full form-input rounded-xl p-4 text-white" placeholder="John Doe">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-mono text-gray-500 uppercase tracking-widest">Company</label>
+                                <input type="text" id="company" class="w-full form-input rounded-xl p-4 text-white" placeholder="Inc.">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs font-mono text-gray-500 uppercase tracking-widest">Service Type</label>
+                                <select id="service" class="w-full form-input rounded-xl p-4 text-white appearance-none cursor-pointer">
+                                    <option value="development">Development</option>
+                                    <option value="design">Design</option>
+                                    <option value="security">Cyber Security</option>
+                                    <option value="consulting">General Consulting</option>
+                                </select>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-mono text-gray-500 uppercase tracking-widest">Budget Range</label>
+                                <select id="budget" class="w-full form-input rounded-xl p-4 text-white appearance-none cursor-pointer">
+                                    <option value="small">$1k - $5k</option>
+                                    <option value="medium" selected>$5k - $20k</option>
+                                    <option value="large">$20k - $50k</option>
+                                    <option value="enterprise">$50k+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-mono text-gray-500 uppercase tracking-widest">Message</label>
+                            <textarea id="message" rows="5" required class="w-full form-input rounded-xl p-4 text-white" placeholder="Tell us about your vision..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-xl transition-all shadow-xl shadow-blue-600/20 flex items-center justify-center gap-3 group">
+                            Send Inquiry <i data-lucide="send" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- INFO & FAQ -->
+                <div class="space-y-12" data-aos="fade-left">
+                    <!-- CONTACT INFO -->
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <a href="mailto:info@nexussolution.space" class="glass-panel p-8 rounded-2xl group hover:border-blue-500/30 transition-all">
+                            <i data-lucide="mail" class="w-8 h-8 text-blue-400 mb-4"></i>
+                            <h4 class="text-white font-bold mb-1">Email Us</h4>
+                            <p class="text-gray-500 text-sm">info@nexussolution.space</p>
+                        </a>
+                        <a href="https://wa.me/923156329975" class="glass-panel p-8 rounded-2xl group hover:border-green-500/30 transition-all">
+                            <i data-lucide="phone" class="w-8 h-8 text-green-400 mb-4"></i>
+                            <h4 class="text-white font-bold mb-1">WhatsApp</h4>
+                            <p class="text-gray-500 text-sm">03156329975</p>
+                        </a>
+                    </div>
+
+                    <!-- FAQ -->
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-display font-bold text-white mb-6">Frequently Asked Questions</h3>
+                        
+                        <details class="faq-item glass-panel rounded-2xl group overflow-hidden">
+                            <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                                <span class="text-white font-medium">How long does a typical project take?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform"></i>
+                            </summary>
+                            <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+                                Depending on complexity, a design project typically takes 2-4 weeks, while a full development cycle ranges from 8-16 weeks.
+                            </div>
+                        </details>
+
+                        <details class="faq-item glass-panel rounded-2xl group overflow-hidden">
+                            <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                                <span class="text-white font-medium">What is your payment structure?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform"></i>
+                            </summary>
+                            <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+                                We usually operate on a 40/30/30 structure: 40% upfront deposit, 30% at midway milestone, and 30% upon final delivery.
+                            </div>
+                        </details>
+
+                        <details class="faq-item glass-panel rounded-2xl group overflow-hidden">
+                            <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                                <span class="text-white font-medium">Do you offer post-launch support?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform"></i>
+                            </summary>
+                            <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+                                Yes, we offer tiered maintenance retainers starting from 10 hours/month to ensure your system stays updated and secure.
+                            </div>
+                        </details>
+
+                        <details class="faq-item glass-panel rounded-2xl group overflow-hidden">
+                            <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                                <span class="text-white font-medium">Can you help with legacy system migration?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform"></i>
+                            </summary>
+                            <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+                                Absolutely. We specialize in refactoring legacy codebases into modern React/Node or Python architectures with zero data loss.
+                            </div>
+                        </details>
+
+                        <details class="faq-item glass-panel rounded-2xl group overflow-hidden">
+                            <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                                <span class="text-white font-medium">Is the security audit really free?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform"></i>
+                            </summary>
+                            <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+                                We provide a basic surface-level vulnerability scan for free to new clients. For deep-spectrum VAPT, we provide a custom quote.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-cyber-border/50 bg-cyber-card py-12 relative z-10">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center">
+                    <i data-lucide="hexagon" class="text-white w-5 h-5"></i>
+                </div>
+                <span class="font-display font-bold text-white">NEXUS SOLUTION</span>
+            </div>
+            
+            <div class="flex gap-4">
+                <a href="https://x.com/Nexus_Solution_" target="_blank" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                <a href="https://www.instagram.com/ne_ussolution?igsh=MXE5dno3b2ZuNXJucQ==" target="_blank" class="text-gray-500 hover:text-pink-500 transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="https://www.linkedin.com/in/ibrahim-devep" target="_blank" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            </div>
+
+            <p class="text-gray-500 text-sm">© 2026 Nexus Solution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({ duration: 800, once: true });
+        lucide.createIcons();
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('translate-x-full');
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const service = document.getElementById('service').value;
+            const budget = document.getElementById('budget').value;
+            const message = document.getElementById('message').value;
+
+            const subject = encodeURIComponent(`Project Inquiry: ${service} - ${name}`);
+            const body = encodeURIComponent(`Budget: ${budget}\n\nMessage:\n${message}`);
+            
+            window.location.href = `mailto:info@nexussolution.space?subject=${subject}&body=${body}`;
+        }
+    </script>
+</body>
+</html>
