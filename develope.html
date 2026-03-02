@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Develop | Nexus Solution - Engineering Scalable Solutions</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        cyber: {
+                            dark: '#030305',
+                            card: '#0A0A0F',
+                            border: '#1F1F2E',
+                            accent: '#3B82F6',
+                            code: '#60A5FA',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(10, 10, 15, 0.6);
+        }
+        body {
+            background-color: #030305;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.05), transparent 25%),
+                linear-gradient(to right, rgba(31, 31, 46, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(31, 31, 46, 0.1) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+        }
+        .code-gradient {
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .performance-meter {
+            background: conic-gradient(#3B82F6 99%, #1F1F2E 0);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-blue-500/30">
+
+    <!-- NAVIGATION (Exact match to index.html) -->
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-b-cyber-border/50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                        <i data-lucide="hexagon" class="text-white w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-display font-bold text-xl tracking-tight text-white leading-none">NEXUS</h1>
+                        <p class="text-[10px] uppercase tracking-[0.2em] text-blue-400 font-semibold mt-1">Solution</p>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center gap-1 bg-cyber-card/50 p-1 rounded-full border border-cyber-border">
+                    <a href="index.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Home</a>
+                    <a href="design.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Design</a>
+                    <a href="develop.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-white bg-white/10">Develop</a>
+                    <a href="#" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Defend</a>
+                </div>
+
+                <div class="hidden md:flex">
+                    <button class="group relative px-6 py-2.5 bg-white text-cyber-dark font-semibold rounded-lg overflow-hidden transition-all hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                        <span class="relative flex items-center gap-2">
+                            Get a Quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </span>
+                    </button>
+                </div>
+
+                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="fixed inset-0 bg-cyber-dark z-40 transform translate-x-full pt-24 px-6 transition-transform duration-300">
+        <div class="flex flex-col gap-6 text-center">
+            <a href="index.html" class="text-2xl font-display font-bold text-gray-400">Home</a>
+            <a href="design.html" class="text-2xl font-display font-bold text-gray-400">Design</a>
+            <a href="develop.html" class="text-2xl font-display font-bold text-white">Develop</a>
+            <a href="#" class="text-2xl font-display font-bold text-gray-400">Defend</a>
+            <a href="#" class="text-2xl font-display font-bold text-blue-400">Contact Us</a>
+        </div>
+    </div>
+
+    <main class="pt-32 pb-20">
+        <!-- HERO SECTION -->
+        <section class="container mx-auto px-6 mb-32 relative">
+            <div class="max-w-4xl" data-aos="fade-up">
+                <div class="flex items-center gap-3 font-mono text-sm text-blue-400 mb-6">
+                    <span class="px-2 py-0.5 border border-blue-400/30 rounded">STABLE</span>
+                    <span class="opacity-50">v4.2.0-release</span>
+                </div>
+                <h1 class="font-display text-5xl md:text-8xl font-bold leading-none mb-8">
+                    Engineering <br>
+                    <span class="code-gradient">Scalable Solutions.</span>
+                </h1>
+                <p class="text-gray-400 text-lg md:text-xl max-w-2xl font-light leading-relaxed">
+                    We architect high-concurrency systems and resilient cloud infrastructures. Minimalist code, maximum impact.
+                </p>
+            </div>
+        </section>
+
+        <!-- TECH STACK -->
+        <section class="container mx-auto px-6 mb-32">
+            <div class="flex items-center justify-between mb-12 border-b border-cyber-border pb-6">
+                <h2 class="font-display text-2xl font-bold uppercase tracking-widest text-white">Core Stack</h2>
+                <span class="font-mono text-xs text-gray-500">01 / TECHNOLOGIES</span>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="glass-panel p-8 rounded-xl group hover:border-blue-500/50 transition-colors cursor-default" data-aos="fade-up" data-aos-delay="0">
+                    <i data-lucide="layers" class="w-10 h-10 text-blue-400 mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">React</h3>
+                    <p class="text-sm text-gray-500 font-mono">Frontend Architecture</p>
+                </div>
+                <div class="glass-panel p-8 rounded-xl group hover:border-blue-500/50 transition-colors cursor-default" data-aos="fade-up" data-aos-delay="100">
+                    <i data-lucide="server" class="w-10 h-10 text-green-400 mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Node.js</h3>
+                    <p class="text-sm text-gray-500 font-mono">Server-side Runtime</p>
+                </div>
+                <div class="glass-panel p-8 rounded-xl group hover:border-blue-500/50 transition-colors cursor-default" data-aos="fade-up" data-aos-delay="200">
+                    <i data-lucide="terminal" class="w-10 h-10 text-yellow-400 mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Python</h3>
+                    <p class="text-sm text-gray-500 font-mono">Logic & Automation</p>
+                </div>
+                <div class="glass-panel p-8 rounded-xl group hover:border-blue-500/50 transition-colors cursor-default" data-aos="fade-up" data-aos-delay="300">
+                    <i data-lucide="cloud" class="w-10 h-10 text-orange-400 mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">AWS</h3>
+                    <p class="text-sm text-gray-500 font-mono">Cloud Infrastructure</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASE STUDY: STYLEHUB -->
+        <section class="bg-cyber-card py-24 mb-32">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 lg:order-1" data-aos="fade-right">
+                        <div class="font-mono text-sm text-blue-500 mb-4 tracking-tighter">// SUCCESS_STORY</div>
+                        <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">StyleHub E-commerce</h2>
+                        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                            Engineered a headless commerce architecture capable of handling over 1 Million concurrent users during peak flash-sale events without a single millisecond of downtime.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3 text-white">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-blue-500"></i>
+                                <span>Microservices Orchestration</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-white">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-blue-500"></i>
+                                <span>Real-time Inventory Sync</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-white">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-blue-500"></i>
+                                <span>Global CDN Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2" data-aos="zoom-in">
+                        <div class="relative p-1 bg-gradient-to-br from-blue-500/20 to-transparent rounded-2xl">
+                            <div class="glass-panel rounded-xl overflow-hidden aspect-video flex items-center justify-center relative">
+                                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+                                <div class="text-center">
+                                    <div class="text-6xl font-display font-bold text-white mb-2">1M+</div>
+                                    <div class="text-sm text-blue-400 font-mono uppercase tracking-[0.3em]">Concurrent Users</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PERFORMANCE SECTION -->
+        <section class="container mx-auto px-6 mb-32">
+            <div class="glass-panel p-12 rounded-3xl grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-up">
+                    <h2 class="text-3xl font-display font-bold text-white mb-6">Built for Speed</h2>
+                    <p class="text-gray-400 mb-8">We don't just build features; we optimize bytes. Our deployment pipeline ensures every project meets the highest performance standards across all devices.</p>
+                    <div class="flex flex-wrap gap-8">
+                        <div>
+                            <div class="text-2xl font-bold text-white mb-1">&lt; 1.2s</div>
+                            <div class="text-xs text-gray-500 uppercase font-mono tracking-widest">LCP Score</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-white mb-1">0ms</div>
+                            <div class="text-xs text-gray-500 uppercase font-mono tracking-widest">FID Latency</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center" data-aos="zoom-in">
+                    <div class="relative w-48 h-48 rounded-full performance-meter p-2">
+                        <div class="w-full h-full bg-cyber-dark rounded-full flex flex-col items-center justify-center border border-white/5 shadow-2xl">
+                            <span class="text-5xl font-display font-bold text-blue-400">99</span>
+                            <span class="text-[10px] text-gray-500 font-mono tracking-tighter">LIGHTHOUSE</span>
+                        </div>
+                        <div class="absolute inset-0 animate-pulse bg-blue-500/10 rounded-full -z-10 blur-xl"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRUST SIGNALS -->
+        <section class="container mx-auto px-6 mb-32 text-center">
+            <p class="text-gray-600 font-mono text-xs uppercase tracking-[0.5em] mb-8">Infrastructure Trusted By</p>
+            <div class="flex justify-center items-center gap-8 opacity-40 grayscale hover:grayscale-0 transition-all cursor-pointer">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="cloud-lightning" class="w-8 h-8 text-white"></i>
+                    <span class="text-2xl font-display font-bold text-white tracking-tighter">Nova Cloud</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="container mx-auto px-6">
+            <div class="border border-cyber-border rounded-3xl p-12 md:p-24 text-center relative overflow-hidden group">
+                <div class="relative z-10">
+                    <h2 class="text-4xl md:text-6xl font-display font-bold text-white mb-8">Build Your Product</h2>
+                    <p class="text-gray-400 text-lg mb-12 max-w-xl mx-auto">
+                        Transform your vision into high-performance reality. Our engineers are ready to deploy your next big idea.
+                    </p>
+                    <a href="mailto:info@nexussolution.space" class="inline-flex items-center gap-3 bg-blue-600 text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20">
+                        Initiate Build <i data-lucide="code" class="w-5 h-5"></i>
+                    </a>
+                </div>
+                <!-- Technical background pattern -->
+                <div class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/blueprint.png')]"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (Exact match to index.html) -->
+    <footer class="border-t border-cyber-border/50 bg-cyber-card py-12 relative z-10">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center">
+                    <i data-lucide="hexagon" class="text-white w-5 h-5"></i>
+                </div>
+                <span class="font-display font-bold text-white">NEXUS SOLUTION</span>
+            </div>
+            
+            <div class="flex gap-4">
+                <a href="https://x.com/Nexus_Solution_" target="_blank" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                <a href="https://www.instagram.com/ne_ussolution?igsh=MXE5dno3b2ZuNXJucQ==" target="_blank" class="text-gray-500 hover:text-pink-500 transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="https://www.linkedin.com/in/ibrahim-devep" target="_blank" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            </div>
+
+            <p class="text-gray-500 text-sm">© 2026 Nexus Solution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        lucide.createIcons();
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('translate-x-full');
+        }
+    </script>
+</body>
+</html>
