@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design | Nexus Solution - Digital Aesthetics Redefined</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        cyber: {
+                            dark: '#030305',
+                            card: '#0A0A0F',
+                            border: '#1F1F2E',
+                            accent: '#3B82F6',
+                            purple: '#8B5CF6',
+                            success: '#10B981',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(10, 10, 15, 0.6);
+        }
+        body {
+            background-color: #030305;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08), transparent 25%);
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+        }
+        .text-gradient-blue {
+            background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover-effect {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.1);
+        }
+        .stats-border {
+            border-left: 2px solid rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-blue-500/30 selection:text-blue-200">
+
+    <!-- NAVIGATION (Exact match to index.html) -->
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-b-cyber-border/50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                        <i data-lucide="hexagon" class="text-white w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-display font-bold text-xl tracking-tight text-white leading-none">NEXUS</h1>
+                        <p class="text-[10px] uppercase tracking-[0.2em] text-blue-400 font-semibold mt-1">Solution</p>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center gap-1 bg-cyber-card/50 p-1 rounded-full border border-cyber-border">
+                    <a href="index.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Home</a>
+                    <a href="design.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-white bg-white/10">Design</a>
+                    <a href="#" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Develop</a>
+                    <a href="#" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Defend</a>
+                </div>
+
+                <div class="hidden md:flex">
+                    <button class="group relative px-6 py-2.5 bg-white text-cyber-dark font-semibold rounded-lg overflow-hidden transition-all hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                        <span class="relative flex items-center gap-2">
+                            Get a Quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </span>
+                    </button>
+                </div>
+
+                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="fixed inset-0 bg-cyber-dark z-40 transform translate-x-full pt-24 px-6 transition-transform duration-300">
+        <div class="flex flex-col gap-6 text-center">
+            <a href="index.html" class="text-2xl font-display font-bold text-gray-400">Home</a>
+            <a href="design.html" class="text-2xl font-display font-bold text-white">Design</a>
+            <a href="#" class="text-2xl font-display font-bold text-gray-400">Develop</a>
+            <a href="#" class="text-2xl font-display font-bold text-gray-400">Defend</a>
+            <a href="#" class="text-2xl font-display font-bold text-blue-400">Contact Us</a>
+        </div>
+    </div>
+
+    <main class="pt-32 pb-20">
+        <!-- HERO SECTION -->
+        <section class="container mx-auto px-6 mb-24">
+            <div class="max-w-4xl" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wider mb-6 uppercase">
+                    Premium Visual Strategy
+                </div>
+                <h1 class="font-display text-5xl md:text-7xl font-bold leading-tight mb-8">
+                    Digital Aesthetics <br>
+                    <span class="text-gradient-blue">Redefined.</span>
+                </h1>
+                <p class="text-gray-400 text-lg md:text-xl max-w-2xl font-light leading-relaxed mb-10">
+                    We bridge the gap between complex engineering and human-centric design. Our visual systems are built to convert, engage, and inspire.
+                </p>
+                <div class="flex items-center gap-6">
+                    <a href="#case-study" class="flex items-center gap-2 text-white font-semibold group">
+                        See Case Study <i data-lucide="chevron-down" class="w-5 h-5 group-hover:translate-y-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES GRID -->
+        <section class="container mx-auto px-6 mb-32">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-2xl card-hover-effect" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i data-lucide="layout" class="text-blue-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">UI/UX Design</h3>
+                    <p class="text-gray-400 leading-relaxed">High-fidelity interfaces focused on user journey optimization and seamless interaction patterns for enterprise platforms.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl card-hover-effect" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i data-lucide="framer" class="text-purple-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">Brand Identity</h3>
+                    <p class="text-gray-400 leading-relaxed">Visual storytelling through logos, typography, and color systems that command authority in the tech industry.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl card-hover-effect" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-pink-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i data-lucide="box" class="text-pink-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">3D Mockups</h3>
+                    <p class="text-gray-400 leading-relaxed">Advanced product visualization and cinematic renders that bring your software concepts to life before they launch.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASE STUDY: GLOBALPAY -->
+        <section id="case-study" class="bg-cyber-card/30 py-24 border-y border-cyber-border/50">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div data-aos="fade-right">
+                        <span class="text-blue-400 font-mono text-sm tracking-widest uppercase">Featured Case Study</span>
+                        <h2 class="text-4xl md:text-5xl font-display font-bold text-white mt-4 mb-6">GlobalPay App Redesign</h2>
+                        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                            GlobalPay faced a challenge: high drop-off rates during the onboarding process. We overhauled their entire visual architecture, prioritizing "speed-to-action" and reducing cognitive load.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-8 mb-10">
+                            <div class="stats-border pl-6">
+                                <div class="text-4xl font-display font-bold text-blue-400">+45%</div>
+                                <div class="text-sm text-gray-500 uppercase tracking-wider mt-1">User Retention</div>
+                            </div>
+                            <div class="stats-border pl-6">
+                                <div class="text-4xl font-display font-bold text-white">-30%</div>
+                                <div class="text-sm text-gray-500 uppercase tracking-wider mt-1">Bounce Rate</div>
+                            </div>
+                        </div>
+                        
+                        <blockquote class="border-l-2 border-gray-700 pl-6 italic text-gray-400">
+                            "Nexus didn't just change the colors; they changed how our users think about digital finance."
+                        </blockquote>
+                    </div>
+                    
+                    <div class="relative" data-aos="zoom-in">
+                        <div class="aspect-video bg-cyber-card border border-cyber-border rounded-2xl overflow-hidden shadow-2xl relative group">
+                            <!-- Placeholder for Screenshot -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent flex items-center justify-center">
+                                <i data-lucide="image" class="w-16 h-16 text-cyber-border"></i>
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4 h-1/2 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                                <div class="flex gap-2 mb-3">
+                                    <div class="w-2 h-2 rounded-full bg-red-500/50"></div>
+                                    <div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                                    <div class="w-2 h-2 rounded-full bg-green-500/50"></div>
+                                </div>
+                                <div class="h-2 w-3/4 bg-white/10 rounded mb-2"></div>
+                                <div class="h-2 w-1/2 bg-white/10 rounded mb-6"></div>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <div class="h-12 bg-blue-500/20 rounded"></div>
+                                    <div class="h-12 bg-blue-500/20 rounded"></div>
+                                    <div class="h-12 bg-blue-500/20 rounded"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Floating Accent -->
+                        <div class="absolute -top-6 -right-6 w-32 h-32 bg-blue-600/10 blur-3xl -z-10"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRUST SIGNALS -->
+        <section class="py-20 border-b border-cyber-border/30">
+            <div class="container mx-auto px-6 text-center">
+                <p class="text-gray-500 uppercase tracking-widest text-xs font-semibold mb-10">Partnering with Industry Leaders</p>
+                <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-50 grayscale hover:grayscale-0 transition-all">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="zap" class="text-white w-6 h-6"></i>
+                        <span class="text-xl font-display font-bold text-white">Creative Hub</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="wind" class="text-white w-6 h-6"></i>
+                        <span class="text-xl font-display font-bold text-white">TechFlow</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="activity" class="text-white w-6 h-6"></i>
+                        <span class="text-xl font-display font-bold text-white">PulseDesign</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIAL -->
+        <section class="container mx-auto px-6 py-32">
+            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                <div class="flex justify-center mb-8">
+                    <div class="flex gap-1 text-yellow-500">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-display font-medium text-white leading-relaxed mb-10">
+                    "Nexus Solution possesses a rare ability to understand technical constraints while pushing the boundaries of what's visually possible. They are our go-to for high-stakes product launches."
+                </h2>
+                <div class="flex items-center justify-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500"></div>
+                    <div class="text-left">
+                        <p class="text-white font-bold">Sarah Jenkins</p>
+                        <p class="text-gray-500 text-sm">Design Lead at TechFlow</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="container mx-auto px-6">
+            <div class="glass-panel bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-3xl p-12 md:p-20 text-center relative overflow-hidden" data-aos="zoom-in">
+                <div class="relative z-10">
+                    <h2 class="text-4xl md:text-6xl font-display font-bold text-white mb-6">Start Your Design Journey</h2>
+                    <p class="text-gray-300 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+                        Ready to elevate your digital presence with enterprise-grade design? Let's build your next masterpiece together.
+                    </p>
+                    <a href="mailto:info@nexussolution.space" class="inline-flex items-center gap-3 bg-white text-cyber-dark px-10 py-5 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-2xl shadow-white/10">
+                        Contact Us <i data-lucide="send" class="w-5 h-5"></i>
+                    </a>
+                </div>
+                <!-- Abstract circles -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (Exact match to index.html) -->
+    <footer class="border-t border-cyber-border/50 bg-cyber-card py-12 relative z-10">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center">
+                    <i data-lucide="hexagon" class="text-white w-5 h-5"></i>
+                </div>
+                <span class="font-display font-bold text-white">NEXUS SOLUTION</span>
+            </div>
+            
+            <div class="flex gap-4">
+                <a href="https://x.com/Nexus_Solution_" target="_blank" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                <a href="https://www.instagram.com/ne_ussolution?igsh=MXE5dno3b2ZuNXJucQ==" target="_blank" class="text-gray-500 hover:text-pink-500 transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="https://www.linkedin.com/in/ibrahim-devep" target="_blank" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            </div>
+
+            <p class="text-gray-500 text-sm">© 2026 Nexus Solution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({ duration: 800, once: true });
+        lucide.createIcons();
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('translate-x-full');
+        }
+    </script>
+</body>
+</html>
