@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Nexus Solution | Enterprise Technology Agency</title>
+    <meta name="description" content="Nexus Solution is an elite enterprise technology agency specializing in high-end UI/UX design, custom software architecture, and military-grade cybersecurity.">
+    <meta name="keywords" content="Nexus Solution, Web Development, Cybersecurity, UI/UX Design, POS Systems, Ethical Hacking, Software Agency">
+    <meta name="author" content="Ibrahim - Nexus Solution">
+    <meta name="robots" content="index, follow">
     
+    <link rel="icon" type="image/png" href="logo.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="icon" type="image/png" href="logo.png">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -36,9 +41,6 @@
                             warning: '#F59E0B',
                             danger: '#EF4444'
                         }
-                    },
-                    backgroundImage: {
-                        'hero-mesh': "url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%231f1f2e\\' fill-opacity=\\'0.4\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
                     }
                 }
             }
@@ -64,17 +66,6 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
         }
-        .page-section {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out forwards;
-        }
-        .page-section.active {
-            display: block;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
         .text-gradient-blue {
             background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%);
             -webkit-background-clip: text;
@@ -88,6 +79,10 @@
             border-color: rgba(59, 130, 246, 0.3);
             box-shadow: 0 0 30px rgba(59, 130, 246, 0.1);
         }
+        /* Mobile menu transition */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-blue-500/30 selection:text-blue-200">
@@ -95,7 +90,7 @@
     <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-b-cyber-border/50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
+                <a href="index.html" class="flex items-center gap-3 cursor-pointer">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
                         <i data-lucide="hexagon" class="text-white w-6 h-6"></i>
                     </div>
@@ -103,22 +98,23 @@
                         <h1 class="font-display font-bold text-xl tracking-tight text-white leading-none">NEXUS</h1>
                         <p class="text-[10px] uppercase tracking-[0.2em] text-blue-400 font-semibold mt-1">Solution</p>
                     </div>
-                </div>
+                </a>
 
                 <div class="hidden md:flex items-center gap-1 bg-cyber-card/50 p-1 rounded-full border border-cyber-border">
-                    <button onclick="switchTab('home')" class="nav-btn px-5 py-2 rounded-full text-sm font-medium transition-all text-white bg-white/10" data-target="home">Home</button>
-                    <button onclick="switchTab('design')" class="nav-btn px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5" data-target="design">Design</button>
-                    <button onclick="switchTab('develop')" class="nav-btn px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5" data-target="develop">Develop</button>
-                    <button onclick="switchTab('defend')" class="nav-btn px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5" data-target="defend">Defend</button>
+                    <a href="index.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-white bg-white/10">Home</a>
+                    <a href="design.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Design</a>
+                    <a href="develop.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Develop</a>
+                    <a href="defend.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Defend</a>
+                    <a href="career.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Careers</a>
                 </div>
 
                 <div class="hidden md:flex">
-                    <button onclick="switchTab('contact')" class="group relative px-6 py-2.5 bg-white text-cyber-dark font-semibold rounded-lg overflow-hidden transition-all hover:scale-105">
+                    <a href="contact.html" class="group relative px-6 py-2.5 bg-white text-cyber-dark font-semibold rounded-lg overflow-hidden transition-all hover:scale-105 inline-block">
                         <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity"></div>
                         <span class="relative flex items-center gap-2">
                             Get a Quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </span>
-                    </button>
+                    </a>
                 </div>
 
                 <button class="md:hidden text-white" onclick="toggleMobileMenu()">
@@ -130,231 +126,114 @@
 
     <div id="mobile-menu" class="fixed inset-0 bg-cyber-dark z-40 transform translate-x-full pt-24 px-6 transition-transform duration-300">
         <div class="flex flex-col gap-6 text-center">
-            <button onclick="switchTab('home'); toggleMobileMenu()" class="text-2xl font-display font-bold text-white">Home</button>
-            <button onclick="switchTab('design'); toggleMobileMenu()" class="text-2xl font-display font-bold text-gray-400">Design</button>
-            <button onclick="switchTab('develop'); toggleMobileMenu()" class="text-2xl font-display font-bold text-gray-400">Develop</button>
-            <button onclick="switchTab('defend'); toggleMobileMenu()" class="text-2xl font-display font-bold text-gray-400">Defend</button>
-            <button onclick="switchTab('contact'); toggleMobileMenu()" class="text-2xl font-display font-bold text-blue-400">Contact Us</button>
+            <a href="index.html" class="text-2xl font-display font-bold text-white">Home</a>
+            <a href="design.html" class="text-2xl font-display font-bold text-gray-400">Design</a>
+            <a href="develop.html" class="text-2xl font-display font-bold text-gray-400">Develop</a>
+            <a href="defend.html" class="text-2xl font-display font-bold text-gray-400">Defend</a>
+            <a href="career.html" class="text-2xl font-display font-bold text-gray-400">Careers</a>
+            <a href="contact.html" class="text-2xl font-display font-bold text-blue-400">Contact Us</a>
         </div>
     </div>
 
     <main class="min-h-screen pt-28 pb-12 relative z-10 container mx-auto px-6">
-        <section id="home" class="page-section active">
-            <div class="flex flex-col items-center text-center max-w-4xl mx-auto mt-10 md:mt-20" data-aos="fade-up">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wider mb-6">
-                    <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                    OPEN FOR NEW PROJECTS
-                </div>
-                <h1 class="font-display text-5xl md:text-8xl font-bold leading-tight mb-6">
-                    Design. Develop. <br>
-                    <span class="text-gradient-blue">Defend.</span>
-                </h1>
-                <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-                    We are Nexus Solution. We architect robust software, craft stunning visuals, and secure digital infrastructures for modern enterprises.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                    <button onclick="switchTab('develop')" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2">
-                        View Portfolio <i data-lucide="layers" class="w-5 h-5"></i>
-                    </button>
-                    <button onclick="switchTab('contact')" class="px-8 py-4 glass-panel hover:bg-white/5 text-white rounded-xl font-semibold transition-all border border-gray-700 flex items-center justify-center gap-2">
-                        Start a Project
-                    </button>
-                </div>
+        
+        <section class="flex flex-col items-center text-center max-w-4xl mx-auto mt-10 md:mt-20" data-aos="fade-up">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wider mb-6">
+                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                OPEN FOR NEW PROJECTS
             </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 py-8 border-y border-cyber-border/50" data-aos="fade-up">
-                <div class="text-center">
-                    <div class="text-3xl font-display font-bold text-white mb-1">50+</div>
-                    <div class="text-sm text-gray-500 uppercase tracking-wider">Projects Done</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-display font-bold text-white mb-1">99%</div>
-                    <div class="text-sm text-gray-500 uppercase tracking-wider">Client Satisfaction</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-display font-bold text-white mb-1">24/7</div>
-                    <div class="text-sm text-gray-500 uppercase tracking-wider">Support Active</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-display font-bold text-white mb-1">100%</div>
-                    <div class="text-sm text-gray-500 uppercase tracking-wider">Secure Code</div>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 mt-20">
-                <div class="glass-panel p-8 rounded-2xl card-hover-effect group cursor-pointer" onclick="switchTab('design')">
-                    <div class="w-14 h-14 rounded-lg bg-pink-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="palette" class="w-7 h-7 text-pink-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-3">Creative Design</h3>
-                    <p class="text-gray-400 mb-6">UI/UX, Video Editing, and Brand Identity. We make your business look premium.</p>
-                    <div class="flex items-center text-pink-400 font-medium text-sm">Explore Design <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i></div>
-                </div>
-                <div class="glass-panel p-8 rounded-2xl card-hover-effect group cursor-pointer" onclick="switchTab('develop')">
-                    <div class="w-14 h-14 rounded-lg bg-blue-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="code-2" class="w-7 h-7 text-blue-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-3">Development</h3>
-                    <p class="text-gray-400 mb-6">POS Systems, BMS, and Custom Python Solutions. Scalable architecture.</p>
-                    <div class="flex items-center text-blue-400 font-medium text-sm">Explore Develop <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i></div>
-                </div>
-                <div class="glass-panel p-8 rounded-2xl card-hover-effect group cursor-pointer" onclick="switchTab('defend')">
-                    <div class="w-14 h-14 rounded-lg bg-green-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="shield-check" class="w-7 h-7 text-green-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-3">Cyber Security</h3>
-                    <p class="text-gray-400 mb-6">Penetration Testing and Ethical Hacking. Defensive strength through offensive security.</p>
-                    <div class="flex items-center text-green-400 font-medium text-sm">Explore Defend <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i></div>
-                </div>
+            <h1 class="font-display text-5xl md:text-8xl font-bold leading-tight mb-6">
+                Design. Develop. <br>
+                <span class="text-gradient-blue">Defend.</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                We are Nexus Solution. We architect robust software, craft stunning visuals, and secure digital infrastructures for modern enterprises.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="develop.html" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2">
+                    View Portfolio <i data-lucide="layers" class="w-5 h-5"></i>
+                </a>
+                <a href="contact.html" class="px-8 py-4 glass-panel hover:bg-white/5 text-white rounded-xl font-semibold transition-all border border-gray-700 flex items-center justify-center gap-2">
+                    Start a Project
+                </a>
             </div>
         </section>
 
-        <section id="design" class="page-section">
-            <div class="mb-12">
-                <span class="text-pink-500 font-mono text-sm tracking-wider uppercase">Visual Engineering</span>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mt-2 mb-4">Design Services</h2>
-                <p class="text-gray-400 max-w-2xl">From cinematic video production to pixel-perfect UI/UX.</p>
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 py-8 border-y border-cyber-border/50" data-aos="fade-up">
+            <div class="text-center">
+                <div class="text-3xl font-display font-bold text-white mb-1">50+</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Projects Done</div>
             </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-cyber-card border border-cyber-border p-6 rounded-xl hover:border-pink-500/50 transition-colors">
-                    <i data-lucide="video" class="w-8 h-8 text-pink-500 mb-4"></i>
-                    <h4 class="text-lg font-bold text-white mb-2">Video Editing</h4>
-                    <p class="text-sm text-gray-400">Premiere Pro, After Effects, DaVinci Resolve.</p>
-                </div>
-                <div class="bg-cyber-card border border-cyber-border p-6 rounded-xl hover:border-pink-500/50 transition-colors">
-                    <i data-lucide="instagram" class="w-8 h-8 text-pink-500 mb-4"></i>
-                    <h4 class="text-lg font-bold text-white mb-2">Social Design</h4>
-                    <p class="text-sm text-gray-400">Viral content design for Instagram & TikTok.</p>
-                </div>
-                <div class="bg-cyber-card border border-cyber-border p-6 rounded-xl hover:border-pink-500/50 transition-colors">
-                    <i data-lucide="layout-template" class="w-8 h-8 text-pink-500 mb-4"></i>
-                    <h4 class="text-lg font-bold text-white mb-2">UI/UX</h4>
-                    <p class="text-sm text-gray-400">Modern interfaces in Figma & Adobe XD.</p>
-                </div>
+            <div class="text-center">
+                <div class="text-3xl font-display font-bold text-white mb-1">99%</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Client Satisfaction</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl font-display font-bold text-white mb-1">24/7</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Support Active</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl font-display font-bold text-white mb-1">100%</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Secure Code</div>
             </div>
         </section>
 
-        <section id="develop" class="page-section">
-            <div class="mb-12">
-                <span class="text-blue-500 font-mono text-sm tracking-wider uppercase">System Architecture</span>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mt-2 mb-4">Development Services</h2>
-                <p class="text-gray-400 max-w-2xl">Specializing in POS and BMS for retail, medical, and hospitality.</p>
-            </div>
-            <div class="glass-panel p-8 rounded-xl border-l-4 border-blue-500 mb-10">
-                <h4 class="text-lg font-bold text-white mb-4">Our Technology Stack</h4>
-                <div class="flex flex-wrap gap-3">
-                    <span class="px-3 py-1 bg-blue-900/30 text-blue-300 rounded border border-blue-500/30 text-sm">Python</span>
-                    <span class="px-3 py-1 bg-blue-900/30 text-blue-300 rounded border border-blue-500/30 text-sm">Django</span>
-                    <span class="px-3 py-1 bg-blue-900/30 text-blue-300 rounded border border-blue-500/30 text-sm">React.js</span>
-                    <span class="px-3 py-1 bg-blue-900/30 text-blue-300 rounded border border-blue-500/30 text-sm">PostgreSQL</span>
+        <section class="grid md:grid-cols-3 gap-6 mt-20">
+            <a href="design.html" class="glass-panel p-8 rounded-2xl card-hover-effect group block" data-aos="fade-up" data-aos-delay="0">
+                <div class="w-14 h-14 rounded-lg bg-pink-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="palette" class="w-7 h-7 text-pink-400"></i>
                 </div>
-            </div>
+                <h3 class="text-2xl font-display font-bold text-white mb-3">Creative Design</h3>
+                <p class="text-gray-400 mb-6">UI/UX, Video Editing, and Brand Identity. We make your business look premium.</p>
+                <div class="flex items-center text-pink-400 font-medium text-sm">
+                    Explore Design <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </a>
+            
+            <a href="develop.html" class="glass-panel p-8 rounded-2xl card-hover-effect group block" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-14 h-14 rounded-lg bg-blue-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="code-2" class="w-7 h-7 text-blue-400"></i>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-white mb-3">Development</h3>
+                <p class="text-gray-400 mb-6">POS Systems, BMS, and Custom Python Solutions. Scalable architecture.</p>
+                <div class="flex items-center text-blue-400 font-medium text-sm">
+                    Explore Develop <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </a>
+            
+            <a href="defend.html" class="glass-panel p-8 rounded-2xl card-hover-effect group block" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-14 h-14 rounded-lg bg-green-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="shield-check" class="w-7 h-7 text-green-400"></i>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-white mb-3">Cyber Security</h3>
+                <p class="text-gray-400 mb-6">Penetration Testing and Ethical Hacking. Defensive strength through offensive security.</p>
+                <div class="flex items-center text-green-400 font-medium text-sm">
+                    Explore Defend <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </a>
         </section>
 
-        <section id="defend" class="page-section">
-            <div class="mb-12">
-                <span class="text-green-500 font-mono text-sm tracking-wider uppercase">Cyber Operations</span>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mt-2 mb-4">Security Services</h2>
-                <p class="text-gray-400 max-w-2xl">We identify weak points before they are exploited.</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-cyber-card border border-cyber-border p-8 rounded-2xl">
-                    <i data-lucide="lock" class="w-10 h-10 text-green-400 mb-4"></i>
-                    <h3 class="text-2xl font-bold text-white mb-2">Penetration Testing</h3>
-                    <p class="text-gray-400">Web app & Network security audits.</p>
-                </div>
-                <div class="bg-cyber-card border border-cyber-border p-8 rounded-2xl">
-                    <i data-lucide="terminal" class="w-10 h-10 text-orange-400 mb-4"></i>
-                    <h3 class="text-2xl font-bold text-white mb-2">Ethical Hacking</h3>
-                    <p class="text-gray-400">Advanced vulnerability assessments.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="page-section">
-            <div class="grid lg:grid-cols-2 gap-12 mt-8">
-                <div data-aos="fade-right">
-                    <span class="text-blue-500 font-mono text-sm tracking-wider uppercase">Get In Touch</span>
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mt-2 mb-6">Let's Build Something<br>Great Together.</h2>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400">
-                                <i data-lucide="mail" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <p class="text-sm text-gray-500">Email Us</p>
-                                <a href="mailto:info@nexussolution.space" class="text-white hover:text-blue-400 transition-colors">info@nexussolution.space</a>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400">
-                                <i data-lucide="twitter" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <p class="text-sm text-gray-500">X (Twitter)</p>
-                                <a href="https://x.com/Nexus_Solution_" target="_blank" class="text-white hover:text-blue-400 transition-colors">@Nexus_Solution_</a>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-pink-500/10 flex items-center justify-center text-pink-400">
-                                <i data-lucide="instagram" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <p class="text-sm text-gray-500">Instagram</p>
-                                <a href="https://www.instagram.com/ne_ussolution?igsh=MXE5dno3b2ZuNXJucQ==" target="_blank" class="text-white hover:text-pink-400 transition-colors">@ne_ussolution</a>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-400">
-                                <i data-lucide="phone" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <p class="text-sm text-gray-500">WhatsApp</p>
-                                <a href="https://wa.me/923156329975" class="text-white hover:text-green-400 transition-colors">03156329975</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-8 rounded-2xl border border-cyber-border">
-                    <form class="space-y-6" onsubmit="sendMail(event)">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label class="text-sm text-gray-400">Name</label>
-                                <input type="text" id="name" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:outline-none focus:border-blue-500" placeholder="John Doe" required>
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-sm text-gray-400">Company</label>
-                                <input type="text" id="company" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:outline-none focus:border-blue-500" placeholder="Your Business">
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm text-gray-400">Message</label>
-                            <textarea id="message" rows="4" class="w-full bg-cyber-dark/50 border border-cyber-border rounded-lg p-3 text-white focus:outline-none focus:border-blue-500" required></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 rounded-lg hover:shadow-lg transition-all transform hover:-translate-y-1">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer class="border-t border-cyber-border/50 bg-cyber-card py-12 relative z-10">
+    <footer class="border-t border-cyber-border/50 bg-cyber-card py-12 mt-20 relative z-10">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-3">
                 <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center">
                     <i data-lucide="hexagon" class="text-white w-5 h-5"></i>
                 </div>
-                <span class="font-display font-bold text-white">NEXUS SOLUTION</span>
+                <span class="font-display font-bold text-white uppercase tracking-wider">NEXUS SOLUTION</span>
             </div>
             
-            <div class="flex gap-4">
-                <a href="https://x.com/Nexus_Solution_" target="_blank" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                <a href="https://www.instagram.com/ne_ussolution?igsh=MXE5dno3b2ZuNXJucQ==" target="_blank" class="text-gray-500 hover:text-pink-500 transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                <a href="https://www.linkedin.com/in/ibrahim-devep" target="_blank" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            <div class="flex items-center gap-6">
+                <a href="https://x.com/Nexus_Solution_" target="_blank" class="text-gray-500 hover:text-white transition-all transform hover:scale-110">
+                    <i data-lucide="twitter" class="w-5 h-5"></i>
+                </a>
+                <a href="https://www.instagram.com/ne_ussolution?igsh=MXE5dno3b2ZuNXJucQ==" target="_blank" class="text-gray-500 hover:text-pink-500 transition-all transform hover:scale-110">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ibrahim-devep" target="_blank" class="text-gray-500 hover:text-blue-500 transition-all transform hover:scale-110">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </a>
             </div>
 
             <p class="text-gray-500 text-sm">© 2026 Nexus Solution. All rights reserved.</p>
@@ -362,38 +241,16 @@
     </footer>
 
     <script>
+        // Initialize Animations
         AOS.init({ duration: 800, once: true });
+        
+        // Initialize Icons
         lucide.createIcons();
 
-        function switchTab(tabId) {
-            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
-            const target = document.getElementById(tabId);
-            if (target) {
-                target.classList.add('active');
-                setTimeout(() => AOS.refresh(), 100);
-            }
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                const isTarget = btn.getAttribute('data-target') === tabId;
-                btn.classList.toggle('text-white', isTarget);
-                btn.classList.toggle('bg-white/10', isTarget);
-                btn.classList.toggle('text-gray-400', !isTarget);
-            });
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
+        // Mobile Menu Toggle Function
         function toggleMobileMenu() {
             document.getElementById('mobile-menu').classList.toggle('translate-x-full');
-        }
-
-        function sendMail(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const message = document.getElementById('message').value;
-            const subject = encodeURIComponent(`Inquiry from ${name}`);
-            const body = encodeURIComponent(message);
-            window.location.href = `mailto:info@nexussolution.space?subject=${subject}&body=${body}`;
         }
     </script>
 </body>
 </html>
-
