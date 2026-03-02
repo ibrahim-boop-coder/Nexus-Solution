@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | Nexus Solution - Shape the Future with Us</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        cyber: {
+                            dark: '#030305',
+                            card: '#0A0A0F',
+                            border: '#1F1F2E',
+                            accent: '#3B82F6',
+                            purple: '#8B5CF6',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(10, 10, 15, 0.6);
+        }
+        body {
+            background-color: #030305;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08), transparent 25%);
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+        }
+        .text-gradient-blue {
+            background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+        }
+        .timeline-line {
+            background: linear-gradient(to right, #3B82F6 0%, #1F1F2E 100%);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-blue-500/30 selection:text-blue-200">
+
+    <!-- NAVIGATION (Exact match to index.html) -->
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-b-cyber-border/50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                        <i data-lucide="hexagon" class="text-white w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-display font-bold text-xl tracking-tight text-white leading-none">NEXUS</h1>
+                        <p class="text-[10px] uppercase tracking-[0.2em] text-blue-400 font-semibold mt-1">Solution</p>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center gap-1 bg-cyber-card/50 p-1 rounded-full border border-cyber-border">
+                    <a href="index.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Home</a>
+                    <a href="design.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Design</a>
+                    <a href="develop.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Develop</a>
+                    <a href="defend.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Defend</a>
+                </div>
+
+                <div class="hidden md:flex">
+                    <button class="group relative px-6 py-2.5 bg-white text-cyber-dark font-semibold rounded-lg overflow-hidden transition-all hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                        <span class="relative flex items-center gap-2">
+                            Get a Quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </span>
+                    </button>
+                </div>
+
+                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="fixed inset-0 bg-cyber-dark z-40 transform translate-x-full pt-24 px-6 transition-transform duration-300">
+        <div class="flex flex-col gap-6 text-center">
+            <a href="index.html" class="text-2xl font-display font-bold text-gray-400">Home</a>
+            <a href="design.html" class="text-2xl font-display font-bold text-gray-400">Design</a>
+            <a href="develop.html" class="text-2xl font-display font-bold text-gray-400">Develop</a>
+            <a href="defend.html" class="text-2xl font-display font-bold text-gray-400">Defend</a>
+            <a href="#" class="text-2xl font-display font-bold text-blue-400">Contact Us</a>
+        </div>
+    </div>
+
+    <main class="pt-32 pb-20">
+        <!-- HERO SECTION -->
+        <section class="container mx-auto px-6 mb-24 text-center">
+            <div class="max-w-4xl mx-auto" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wider mb-6 uppercase">
+                    Join the Mission
+                </div>
+                <h1 class="font-display text-5xl md:text-8xl font-bold leading-tight mb-8">
+                    Shape the Future <br>
+                    <span class="text-gradient-blue">With Us.</span>
+                </h1>
+                <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+                    We are architects, designers, and engineers building the next generation of enterprise technology. Your seat at the table is waiting.
+                </p>
+            </div>
+        </section>
+
+        <!-- PERKS -->
+        <section class="container mx-auto px-6 mb-32">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="wifi" class="text-blue-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-white mb-3">Remote Work</h3>
+                    <p class="text-gray-400 text-sm">Work from anywhere in the world. We believe in results, not clock-in times.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="globe-2" class="text-purple-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-white mb-3">Global Projects</h3>
+                    <p class="text-gray-400 text-sm">Collaborate on large-scale infrastructure projects for Fortune 500 companies.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-pink-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="zap" class="text-pink-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-white mb-3">High-Growth Culture</h3>
+                    <p class="text-gray-400 text-sm">Fast-paced environment with mentorship and equity opportunities for key hires.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- OPEN ROLES -->
+        <section class="container mx-auto px-6 mb-32">
+            <div class="flex items-center justify-between mb-12 border-b border-cyber-border pb-6">
+                <h2 class="font-display text-2xl font-bold uppercase tracking-widest text-white">Current Openings</h2>
+                <span class="text-blue-400 font-mono text-xs">3 POSITIONS AVAILABLE</span>
+            </div>
+            
+            <div class="grid gap-4">
+                <!-- Role Card 1 -->
+                <div class="glass-panel p-6 md:p-8 rounded-2xl group hover:border-blue-500/30 transition-all">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div>
+                            <span class="text-[10px] font-mono text-blue-400 uppercase tracking-[0.2em] mb-2 block">Engineering</span>
+                            <h3 class="text-2xl font-display font-bold text-white mb-2">Senior Frontend Developer</h3>
+                            <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+                                <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-4 h-4"></i> Remote</span>
+                                <span class="flex items-center gap-1"><i data-lucide="clock" class="w-4 h-4"></i> Full-time</span>
+                                <span class="flex items-center gap-1"><i data-lucide="code" class="w-4 h-4"></i> React / Tailwind</span>
+                            </div>
+                        </div>
+                        <a href="mailto:hr@nexussolution.space?subject=Application for Senior Frontend Developer" class="px-8 py-3 bg-white text-cyber-dark font-bold rounded-xl hover:scale-105 transition-transform text-center">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Role Card 2 -->
+                <div class="glass-panel p-6 md:p-8 rounded-2xl group hover:border-blue-500/30 transition-all">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div>
+                            <span class="text-[10px] font-mono text-green-400 uppercase tracking-[0.2em] mb-2 block">Security</span>
+                            <h3 class="text-2xl font-display font-bold text-white mb-2">Cybersecurity Analyst</h3>
+                            <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+                                <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-4 h-4"></i> Remote</span>
+                                <span class="flex items-center gap-1"><i data-lucide="clock" class="w-4 h-4"></i> Full-time</span>
+                                <span class="flex items-center gap-1"><i data-lucide="shield" class="w-4 h-4"></i> VAPT Specialist</span>
+                            </div>
+                        </div>
+                        <a href="mailto:hr@nexussolution.space?subject=Application for Cybersecurity Analyst" class="px-8 py-3 bg-white text-cyber-dark font-bold rounded-xl hover:scale-105 transition-transform text-center">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Role Card 3 -->
+                <div class="glass-panel p-6 md:p-8 rounded-2xl group hover:border-blue-500/30 transition-all">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div>
+                            <span class="text-[10px] font-mono text-purple-400 uppercase tracking-[0.2em] mb-2 block">Creative</span>
+                            <h3 class="text-2xl font-display font-bold text-white mb-2">UI/UX Designer</h3>
+                            <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+                                <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-4 h-4"></i> Remote / Hybrid</span>
+                                <span class="flex items-center gap-1"><i data-lucide="clock" class="w-4 h-4"></i> Contract-to-Hire</span>
+                                <span class="flex items-center gap-1"><i data-lucide="palette" class="w-4 h-4"></i> Figma Maestro</span>
+                            </div>
+                        </div>
+                        <a href="mailto:hr@nexussolution.space?subject=Application for UI Designer" class="px-8 py-3 bg-white text-cyber-dark font-bold rounded-xl hover:scale-105 transition-transform text-center">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HIRING PROCESS -->
+        <section class="container mx-auto px-6 mb-32">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-display font-bold text-white mb-4">Our Hiring Process</h2>
+                <p class="text-gray-500">Simple, transparent, and respectful of your time.</p>
+            </div>
+
+            <div class="relative max-w-5xl mx-auto">
+                <!-- Desktop Timeline Line -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-px timeline-line -translate-y-1/2"></div>
+                
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-12 h-12 step-number rounded-full flex items-center justify-center text-white font-bold mx-auto mb-6 shadow-lg shadow-blue-500/20">1</div>
+                        <h4 class="text-white font-bold mb-2 uppercase text-sm tracking-widest">Apply</h4>
+                        <p class="text-gray-500 text-xs">Submit your portfolio and experience to HR.</p>
+                    </div>
+                    <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-12 h-12 step-number rounded-full flex items-center justify-center text-white font-bold mx-auto mb-6 shadow-lg shadow-blue-500/20">2</div>
+                        <h4 class="text-white font-bold mb-2 uppercase text-sm tracking-widest">Interview</h4>
+                        <p class="text-gray-500 text-xs">A 30-min culture-fit call with our lead.</p>
+                    </div>
+                    <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-12 h-12 step-number rounded-full flex items-center justify-center text-white font-bold mx-auto mb-6 shadow-lg shadow-blue-500/20">3</div>
+                        <h4 class="text-white font-bold mb-2 uppercase text-sm tracking-widest">Technical</h4>
+                        <p class="text-gray-500 text-xs">A real-world task or deep-dive discussion.</p>
+                    </div>
+                    <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-12 h-12 step-number rounded-full flex items-center justify-center text-white font-bold mx-auto mb-6 shadow-lg shadow-blue-500/20">4</div>
+                        <h4 class="text-white font-bold mb-2 uppercase text-sm tracking-widest">Offer</h4>
+                        <p class="text-gray-500 text-xs">Welcome to the Nexus Solution family.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="container mx-auto px-6">
+            <div class="glass-panel p-12 md:p-20 rounded-3xl text-center border-t-4 border-t-blue-500">
+                <h2 class="text-4xl font-display font-bold text-white mb-6">Don't see a perfect role?</h2>
+                <p class="text-gray-400 mb-10 max-w-xl mx-auto">We're always looking for brilliant minds. Send us your resume anyway and we'll keep you on our radar for future expansions.</p>
+                <a href="mailto:hr@nexussolution.space?subject=General Inquiry / Future Openings" class="px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:scale-105 transition-all inline-block shadow-xl shadow-blue-500/10">
+                    Send General Application
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (Exact match to index.html) -->
+    <footer class="border-t border-cyber-border/50 bg-cyber-card py-12 relative z-10">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center">
+                    <i data-lucide="hexagon" class="text-white w-5 h-5"></i>
+                </div>
+                <span class="font-display font-bold text-white">NEXUS SOLUTION</span>
+            </div>
+            
+            <div class="flex gap-4">
+                <a href="https://x.com/Nexus_Solution_" target="_blank" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                <a href="https://www.instagram.com/ne_ussolution?igsh=MXE5dno3b2ZuNXJucQ==" target="_blank" class="text-gray-500 hover:text-pink-500 transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="https://www.linkedin.com/in/ibrahim-devep" target="_blank" class="text-gray-500 hover:text-blue-500 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            </div>
+
+            <p class="text-gray-500 text-sm">© 2026 Nexus Solution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({ duration: 800, once: true });
+        lucide.createIcons();
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('translate-x-full');
+        }
+    </script>
+</body>
+</html>
