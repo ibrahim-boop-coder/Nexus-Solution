@@ -71,6 +71,17 @@
         .timeline-line {
             background: linear-gradient(to right, #3B82F6 0%, #1F1F2E 100%);
         }
+        /* Form Inputs ke liye CSS (New Update) */
+        .form-input {
+            background: rgba(3, 3, 5, 0.5);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            border-color: #3B82F6;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+            outline: none;
+        }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-blue-500/30 selection:text-blue-200">
@@ -183,7 +194,7 @@
                                 <span class="flex items-center gap-1"><i data-lucide="code" class="w-4 h-4"></i> React / Tailwind</span>
                             </div>
                         </div>
-                        <a href="mailto:info@nexussolution.space?subject=Application for Senior Frontend Developer" class="px-8 py-3 bg-white text-cyber-dark font-bold rounded-xl hover:scale-105 transition-transform text-center">
+                        <a href="#apply" class="px-8 py-3 bg-white text-cyber-dark font-bold rounded-xl hover:scale-105 transition-transform text-center">
                             Apply Now
                         </a>
                     </div>
@@ -200,7 +211,7 @@
                                 <span class="flex items-center gap-1"><i data-lucide="shield" class="w-4 h-4"></i> VAPT Specialist</span>
                             </div>
                         </div>
-                        <a href="mailto:info@nexussolution.space?subject=Application for Cybersecurity Analyst" class="px-8 py-3 bg-white text-cyber-dark font-bold rounded-xl hover:scale-105 transition-transform text-center">
+                        <a href="#apply" class="px-8 py-3 bg-white text-cyber-dark font-bold rounded-xl hover:scale-105 transition-transform text-center">
                             Apply Now
                         </a>
                     </div>
@@ -217,7 +228,7 @@
                                 <span class="flex items-center gap-1"><i data-lucide="palette" class="w-4 h-4"></i> Figma Maestro</span>
                             </div>
                         </div>
-                        <a href="mailto:info@nexussolution.space?subject=Application for UI Designer" class="px-8 py-3 bg-white text-cyber-dark font-bold rounded-xl hover:scale-105 transition-transform text-center">
+                        <a href="#apply" class="px-8 py-3 bg-white text-cyber-dark font-bold rounded-xl hover:scale-105 transition-transform text-center">
                             Apply Now
                         </a>
                     </div>
@@ -259,13 +270,55 @@
             </div>
         </section>
 
-        <section class="container mx-auto px-6">
-            <div class="glass-panel p-12 md:p-20 rounded-3xl text-center border-t-4 border-t-blue-500">
-                <h2 class="text-4xl font-display font-bold text-white mb-6">Don't see a perfect role?</h2>
-                <p class="text-gray-400 mb-10 max-w-xl mx-auto">We're always looking for brilliant minds. Send us your resume anyway and we'll keep you on our radar for future expansions.</p>
-                <a href="mailto:info@nexussolution.space?subject=General Inquiry / Future Openings" class="px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:scale-105 transition-all inline-block shadow-xl shadow-blue-500/10">
-                    Send General Application
-                </a>
+        <section id="apply" class="container mx-auto px-6">
+            <div class="glass-panel p-8 md:p-12 rounded-3xl" data-aos="zoom-in">
+                <div class="text-center mb-10">
+                    <h2 class="text-4xl font-display font-bold text-white mb-4">Submit Your Application</h2>
+                    <p class="text-gray-400 max-w-xl mx-auto">Don't see a perfect role? Send us your resume anyway. We're always looking for brilliant minds.</p>
+                </div>
+                
+                <form action="https://formsubmit.co/hr@nexussolution.space" method="POST" class="max-w-3xl mx-auto space-y-6">
+                    
+                    <input type="hidden" name="_subject" value="New Job Application - Nexus Solution">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs font-mono text-gray-500 uppercase tracking-widest">Full Name</label>
+                            <input type="text" name="Name" required class="w-full form-input rounded-xl p-4 text-white" placeholder="John Doe">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-mono text-gray-500 uppercase tracking-widest">Email Address</label>
+                            <input type="email" name="Email" required class="w-full form-input rounded-xl p-4 text-white" placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs font-mono text-gray-500 uppercase tracking-widest">Role Applied For</label>
+                            <select name="Role" required class="w-full form-input rounded-xl p-4 text-white appearance-none cursor-pointer">
+                                <option value="Senior Frontend Developer">Senior Frontend Developer</option>
+                                <option value="Cybersecurity Analyst">Cybersecurity Analyst</option>
+                                <option value="UI/UX Designer">UI/UX Designer</option>
+                                <option value="General Application">General Application</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-mono text-gray-500 uppercase tracking-widest">Portfolio / CV Link</label>
+                            <input type="url" name="Portfolio_URL" required class="w-full form-input rounded-xl p-4 text-white" placeholder="Google Drive, LinkedIn, etc.">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-mono text-gray-500 uppercase tracking-widest">Cover Letter / Message</label>
+                        <textarea name="Message" rows="5" required class="w-full form-input rounded-xl p-4 text-white" placeholder="Tell us why you're a great fit for Nexus Solution..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-5 rounded-xl transition-all shadow-xl shadow-blue-600/20 flex items-center justify-center gap-3 group">
+                        Submit Application <i data-lucide="send" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </form>
             </div>
         </section>
     </main>
