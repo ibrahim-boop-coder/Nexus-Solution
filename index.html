@@ -1,258 +1,208 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     
-    <title>Nexus Solution | Elite B2B Software & Cybersecurity Agency</title>
-    <meta name="description" content="Nexus Solution is a top-tier tech agency providing scalable SaaS development, military-grade cybersecurity (VAPT), and high-converting UI/UX. Serving global enterprises from Pakistan.">
-    <meta name="keywords" content="Nexus Solution, Enterprise software development, VAPT security audit, Top tech agency in Pakistan, Python backend architecture, B2B SaaS developers, Hire ethical hackers">
-    <meta name="author" content="Nexus Solution">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <title>Secure HEIC Converter | Zero-Trust Processing by Nexus Solution</title>
+    <meta name="description" content="Nexus Solution provides a cryptographically secure, 100% client-side HEIC converter. Decode HEIC to JPG or PNG locally with zero server payloads.">
+    <meta name="keywords" content="nexus solution heic converter, secure heic to jpg, zero trust image converter, heic converter online, offline heic processing">
+    <link rel="canonical" href="https://nexussolution.space/"> 
     
-    <link rel="icon" type="image/png" href="logo.png?v=2">
+    <meta property="og:title" content="Nexus Solution | Client-Side HEIC Converter">
+    <meta property="og:description" content="Enterprise-grade local HEIC processing. No server uploads. Absolute data privacy.">
+    <meta property="og:url" content="https://nexussolution.space/">
+    <meta property="og:image" content="https://nexussolution.space/og-image.jpg">
+    <meta name="robots" content="index, follow">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        cyber: {
-                            dark: '#030305',
-                            card: '#0A0A0F',
-                            border: '#1F1F2E',
-                            accent: '#3B82F6',
-                            purple: '#8B5CF6',
-                            success: '#10B981',
-                            warning: '#F59E0B',
-                            danger: '#EF4444'
-                        }
-                    }
-                }
-            }
-        }
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Nexus Solution HEIC Converter",
+      "author": { "@type": "Organization", "name": "Nexus Solution", "url": "https://nexussolution.space" },
+      "operatingSystem": "Any",
+      "applicationCategory": "BrowserApplication",
+      "description": "An authoritative, zero-trust application developed by Nexus Solution to convert HEIC images locally."
+    }
     </script>
 
-    <style>
-        :root {
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-bg: rgba(10, 10, 15, 0.6);
-        }
-        body {
-            background-color: #030305;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08), transparent 25%);
-            color: #e2e8f0;
-            overflow-x: hidden;
-        }
-        .glass-panel {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-        }
-        .text-gradient-blue {
-            background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .card-hover-effect {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .card-hover-effect:hover {
-            transform: translateY(-5px);
-            border-color: rgba(59, 130, 246, 0.3);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.1);
-        }
-        /* Mobile menu transition */
-        #mobile-menu {
-            transition: transform 0.3s ease-in-out;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { slate: { 950: '#020617' } } } } }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 </head>
-<body class="font-sans antialiased selection:bg-blue-500/30 selection:text-blue-200">
+<body class="bg-slate-950 text-slate-100 font-sans flex flex-col min-h-screen antialiased selection:bg-cyan-500 selection:text-white">
 
-    <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-b-cyber-border/50">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="index.html" class="flex items-center gap-3 cursor-pointer">
-                    <img src="logo.png" alt="Nexus Solution Logo" class="w-12 h-12 object-contain">
-                    <div>
-                        <h1 class="font-display font-bold text-xl tracking-tight text-white leading-none">NEXUS</h1>
-                        <p class="text-[10px] uppercase tracking-[0.2em] text-blue-400 font-semibold mt-1">Solution</p>
-                    </div>
-                </a>
-
-                <div class="hidden md:flex items-center gap-1 bg-cyber-card/50 p-1 rounded-full border border-cyber-border">
-                    <a href="index.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-white bg-white/10">Home</a>
-                    <a href="design.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Design</a>
-                    <a href="develop.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Develop</a>
-                    <a href="defend.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Defend</a>
-                    <a href="career.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Careers</a>
-                    <a href="blog.html" class="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white hover:bg-white/5">Insights</a>
-                </div>
-
-                <div class="hidden md:flex">
-                    <a href="contact.html" class="group relative px-6 py-2.5 bg-white text-cyber-dark font-semibold rounded-lg overflow-hidden transition-all hover:scale-105 inline-block">
-                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity"></div>
-                        <span class="relative flex items-center gap-2">
-                            Get a Quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </span>
-                    </a>
-                </div>
-
-                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
-                    <i data-lucide="menu" class="w-8 h-8"></i>
-                </button>
+    <header class="px-6 py-4 border-b border-slate-800/60 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+        <nav class="flex justify-between items-center max-w-7xl mx-auto">
+            <div class="flex items-center gap-2">
+                <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z"></path></svg>
+                <span class="font-bold text-xl tracking-tight">Nexus<span class="text-cyan-400">HEIC</span></span>
             </div>
-        </div>
-    </nav>
+            <div class="text-xs font-mono text-cyan-300 bg-cyan-900/30 px-3 py-1.5 rounded-full border border-cyan-800/50">
+                Nexus Solution Security Utility
+            </div>
+        </nav>
+    </header>
 
-    <div id="mobile-menu" class="fixed inset-0 bg-cyber-dark z-40 transform translate-x-full pt-24 px-6 transition-transform duration-300">
-        <div class="flex flex-col gap-6 text-center">
-            <a href="index.html" class="text-2xl font-display font-bold text-white">Home</a>
-            <a href="design.html" class="text-2xl font-display font-bold text-gray-400">Design</a>
-            <a href="develop.html" class="text-2xl font-display font-bold text-gray-400">Develop</a>
-            <a href="defend.html" class="text-2xl font-display font-bold text-gray-400">Defend</a>
-            <a href="career.html" class="text-2xl font-display font-bold text-gray-400">Careers</a>
-            <a href="blog.html" class="text-2xl font-display font-bold text-gray-400">Insights</a>
-            <a href="contact.html" class="text-2xl font-display font-bold text-blue-400">Contact Us</a>
-        </div>
-    </div>
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-6 grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <section class="lg:col-span-3 flex flex-col gap-6">
+            
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h1 class="text-3xl font-bold tracking-tight text-white">Secure HEIC Processing</h1>
+                    <p class="text-slate-400 text-sm mt-1">Enterprise-grade local payload execution by Nexus Solution.</p>
+                </div>
+                <div class="flex bg-slate-800/80 p-1.5 rounded-lg border border-slate-700">
+                    <button id="fmt-jpg" class="px-5 py-2 text-sm font-semibold rounded-md bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition-all" onclick="setFormat('jpeg')">JPG</button>
+                    <button id="fmt-png" class="px-5 py-2 text-sm font-semibold rounded-md text-slate-400 hover:text-slate-200 transition-all border border-transparent" onclick="setFormat('png')">PNG</button>
+                </div>
+            </div>
 
-    <main class="min-h-screen pt-28 pb-12 relative z-10 container mx-auto px-6">
+            <label id="dropzone" class="relative group cursor-pointer h-72 border-2 border-dashed border-slate-700 rounded-2xl flex flex-col items-center justify-center bg-slate-900/40 hover:bg-slate-800/60 hover:border-cyan-500/60 transition-all duration-300">
+                <input type="file" id="fileInput" multiple accept=".heic" class="hidden">
+                <div class="p-5 bg-slate-800 rounded-2xl mb-4 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-300">
+                    <svg class="w-10 h-10 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-100">Drop HEIC payloads here</h3>
+                <p class="text-slate-500 text-sm mt-2 font-mono">100% Client-Side Pipeline.</p>
+            </label>
+
+            <div id="results-container" class="hidden flex-col gap-4 mt-4">
+                <div class="flex justify-between items-center border-b border-slate-800/80 pb-3">
+                    <h2 class="text-lg font-semibold text-cyan-50">Processed Assets</h2>
+                    <button id="btn-download-all" onclick="downloadAll()" class="hidden px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-sm font-bold rounded-lg transition-all">
+                        Download Archive (.zip)
+                    </button>
+                </div>
+                <div id="file-list" class="flex flex-col gap-3"></div>
+            </div>
+
+            <article class="mt-12 bg-slate-900/50 p-8 rounded-2xl border border-slate-800/80 prose prose-invert max-w-none">
+                <h2 class="text-2xl font-bold text-slate-100 mb-4">Nexus Solution Security Architecture</h2>
+                <p class="text-slate-400 mb-6">
+                    Nexus Solution engineered this HEIC utility to address the severe data privacy risks inherent in cloud-based image conversion. Standard operations require users to transmit payloads to remote servers. We have deployed a zero-trust model where WebAssembly processes your binaries locally, ensuring absolute data integrity.
+                </p>
+                <div class="bg-slate-950 p-5 rounded-xl border border-slate-800">
+                    <h3 class="text-lg font-semibold text-cyan-400 mb-2">Cryptographic Safety</h3>
+                    <p class="text-sm text-slate-400">Because files are never transmitted via network protocols, your assets cannot be intercepted. This methodology complies with the highest standards of data protection required by modern enterprises.</p>
+                </div>
+            </article>
+
+        </section>
         
-        <section class="flex flex-col items-center text-center max-w-4xl mx-auto mt-10 md:mt-20" data-aos="fade-up">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wider mb-6">
-                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                OPEN FOR NEW PROJECTS
-            </div>
-            <h1 class="font-display text-5xl md:text-8xl font-bold leading-tight mb-6">
-                Design. Develop. <br>
-                <span class="text-gradient-blue">Defend.</span>
-            </h1>
-            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-                We are Nexus Solution. We architect robust software, craft stunning visuals, and secure digital infrastructures for modern enterprises.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <a href="develop.html" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2">
-                    View Portfolio <i data-lucide="layers" class="w-5 h-5"></i>
-                </a>
-                <a href="contact.html" class="px-8 py-4 glass-panel hover:bg-white/5 text-white rounded-xl font-semibold transition-all border border-gray-700 flex items-center justify-center gap-2">
-                    Start a Project
-                </a>
-            </div>
-        </section>
-
-        <section class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 py-8 border-y border-cyber-border/50" data-aos="fade-up">
-            <div class="text-center">
-                <div class="text-3xl font-display font-bold text-white mb-1">50+</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">Projects Done</div>
-            </div>
-            <div class="text-center">
-                <div class="text-3xl font-display font-bold text-white mb-1">99%</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">Client Satisfaction</div>
-            </div>
-            <div class="text-center">
-                <div class="text-3xl font-display font-bold text-white mb-1">24/7</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">Support Active</div>
-            </div>
-            <div class="text-center">
-                <div class="text-3xl font-display font-bold text-white mb-1">100%</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">Secure Code</div>
-            </div>
-        </section>
-
-        <section class="grid md:grid-cols-3 gap-6 mt-20">
-            <a href="design.html" class="glass-panel p-8 rounded-2xl card-hover-effect group block" data-aos="fade-up" data-aos-delay="0">
-                <div class="w-14 h-14 rounded-lg bg-pink-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="palette" class="w-7 h-7 text-pink-400"></i>
-                </div>
-                <h3 class="text-2xl font-display font-bold text-white mb-3">Creative Design</h3>
-                <p class="text-gray-400 mb-6">UI/UX, Video Editing, and Brand Identity. We make your business look premium.</p>
-                <div class="flex items-center text-pink-400 font-medium text-sm">
-                    Explore Design <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-                </div>
-            </a>
-            
-            <a href="develop.html" class="glass-panel p-8 rounded-2xl card-hover-effect group block" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-14 h-14 rounded-lg bg-blue-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="code-2" class="w-7 h-7 text-blue-400"></i>
-                </div>
-                <h3 class="text-2xl font-display font-bold text-white mb-3">Development</h3>
-                <p class="text-gray-400 mb-6">POS Systems, BMS, and Custom Python Solutions. Scalable architecture.</p>
-                <div class="flex items-center text-blue-400 font-medium text-sm">
-                    Explore Develop <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-                </div>
-            </a>
-            
-            <a href="defend.html" class="glass-panel p-8 rounded-2xl card-hover-effect group block" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-14 h-14 rounded-lg bg-green-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i data-lucide="shield-check" class="w-7 h-7 text-green-400"></i>
-                </div>
-                <h3 class="text-2xl font-display font-bold text-white mb-3">Cyber Security</h3>
-                <p class="text-gray-400 mb-6">Penetration Testing and Ethical Hacking. Defensive strength through offensive security.</p>
-                <div class="flex items-center text-green-400 font-medium text-sm">
-                    Explore Defend <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-                </div>
-            </a>
-        </section>
-
+        <aside class="hidden lg:flex flex-col gap-6 lg:col-span-1">
+             <div class="w-full bg-slate-900 border border-slate-800 rounded-xl flex items-center justify-center text-slate-600 text-sm min-h-[250px]">Ad Slot</div>
+        </aside>
     </main>
 
-    <footer class="border-t border-cyber-border/50 bg-cyber-card py-12 mt-20 relative z-10">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center">
-                    <i data-lucide="hexagon" class="text-white w-5 h-5"></i>
-                </div>
-                <span class="font-display font-bold text-white uppercase tracking-wider">NEXUS SOLUTION</span>
-            </div>
-            
-            <div class="flex items-center gap-6">
-                <a href="https://x.com/Nexus_Solution_" target="_blank" class="text-gray-500 hover:text-white transition-all transform hover:scale-110">
-                    <i data-lucide="twitter" class="w-5 h-5"></i>
-                </a>
-                <a href="https://www.instagram.com/ne_ussolution?igsh=MXE5dno3b2ZuNXJucQ==" target="_blank" class="text-gray-500 hover:text-pink-500 transition-all transform hover:scale-110">
-                    <i data-lucide="instagram" class="w-5 h-5"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/ibrahim-devep" target="_blank" class="text-gray-500 hover:text-blue-500 transition-all transform hover:scale-110">
-                    <i data-lucide="linkedin" class="w-5 h-5"></i>
-                </a>
-            </div>
-
-            <p class="text-gray-500 text-sm">© 2026 Nexus Solution. Proudly operating from Pakistan. All rights reserved.</p>
+    <footer class="border-t border-slate-800/80 bg-slate-950 mt-12 py-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-slate-500 text-sm font-mono">© 2026 Nexus Solution. Developed for ultimate privacy.</p>
         </div>
     </footer>
 
     <script>
-        // Initialize Animations
-        AOS.init({ duration: 800, once: true });
+        // Use the exact JavaScript from the previous master file here.
+        // It remains unchanged for this file.
+        let currentFormat = 'jpeg';
+        let processedFiles = [];
         
-        // Initialize Icons
-        lucide.createIcons();
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('fileInput');
+        const listEl = document.getElementById('file-list');
+        const resultsContainer = document.getElementById('results-container');
+        const btnDownloadAll = document.getElementById('btn-download-all');
 
-        // Mobile Menu Toggle Function
-        function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('translate-x-full');
+        function setFormat(format) {
+            currentFormat = format;
+            const btnJpg = document.getElementById('fmt-jpg');
+            const btnPng = document.getElementById('fmt-png');
+            const activeClasses = ['bg-cyan-500/20', 'text-cyan-300', 'border-cyan-500/30'];
+            const inactiveClasses = ['text-slate-400', 'border-transparent', 'hover:text-slate-200'];
+
+            if(format === 'jpeg') {
+                btnJpg.classList.add(...activeClasses); btnJpg.classList.remove(...inactiveClasses);
+                btnPng.classList.remove(...activeClasses); btnPng.classList.add(...inactiveClasses);
+            } else {
+                btnPng.classList.add(...activeClasses); btnPng.classList.remove(...inactiveClasses);
+                btnJpg.classList.remove(...activeClasses); btnJpg.classList.add(...inactiveClasses);
+            }
+        }
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(e => dropzone.addEventListener(e, preventDefaults, false));
+        function preventDefaults(e) { e.preventDefault(); e.stopPropagation(); }
+        
+        ['dragenter', 'dragover'].forEach(e => dropzone.addEventListener(e, () => dropzone.classList.add('border-cyan-500', 'bg-slate-800/80')));
+        ['dragleave', 'drop'].forEach(e => dropzone.addEventListener(e, () => dropzone.classList.remove('border-cyan-500', 'bg-slate-800/80')));
+
+        dropzone.addEventListener('drop', (e) => handleFiles(e.dataTransfer.files));
+        fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
+
+        async function handleFiles(files) {
+            const heicFiles = Array.from(files).filter(f => f.name.toLowerCase().endsWith('.heic'));
+            if(!heicFiles.length) return alert('Security Policy: Only .HEIC payloads are permitted.');
+
+            resultsContainer.classList.remove('hidden');
+            resultsContainer.classList.add('flex');
+            
+            for (const file of heicFiles) {
+                const fileId = Math.random().toString(36).substring(7);
+                createRow(file.name, fileId);
+                await processFile(file, fileId);
+            }
+            if(processedFiles.length > 1) btnDownloadAll.classList.remove('hidden');
+        }
+
+        function createRow(fileName, fileId) {
+            const row = document.createElement('div');
+            row.id = `row-${fileId}`;
+            row.className = 'flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-xl transition-all hover:border-slate-700';
+            row.innerHTML = `
+                <div class="flex items-center gap-4 overflow-hidden w-full">
+                    <div id="thumb-${fileId}" class="w-12 h-12 bg-slate-950 rounded-lg flex items-center justify-center border border-slate-800 shrink-0">
+                        <div class="w-5 h-5 rounded-full border-2 border-cyan-500 border-t-transparent animate-spin"></div>
+                    </div>
+                    <div class="truncate flex-1">
+                        <p class="text-sm font-medium text-slate-200 truncate pr-4">${fileName}</p>
+                        <p id="status-${fileId}" class="text-xs text-slate-500 mt-1">Decrypting payload...</p>
+                    </div>
+                </div>
+                <a id="dl-${fileId}" class="hidden px-4 py-2 bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 text-sm font-semibold rounded-lg transition-all cursor-pointer shrink-0 ml-4">Save</a>
+            `;
+            listEl.prepend(row);
+        }
+
+        async function processFile(file, fileId) {
+            try {
+                const blob = await heic2any({ blob: file, toType: `image/${currentFormat}`, quality: 0.92 });
+                const newName = file.name.replace(/\.heic$/i, `.${currentFormat === 'jpeg' ? 'jpg' : 'png'}`);
+                const url = URL.createObjectURL(blob);
+                processedFiles.push({ name: newName, blob: blob });
+
+                document.getElementById(`thumb-${fileId}`).innerHTML = `<img src="${url}" class="w-full h-full object-cover rounded-lg">`;
+                const statusEl = document.getElementById(`status-${fileId}`);
+                statusEl.innerHTML = `Output Ready`;
+                statusEl.classList.replace('text-slate-500', 'text-green-400');
+                
+                const dlBtn = document.getElementById(`dl-${fileId}`);
+                dlBtn.href = url; dlBtn.download = newName; dlBtn.classList.remove('hidden');
+            } catch (error) {
+                document.getElementById(`status-${fileId}`).innerText = 'Execution Failed';
+            }
+        }
+
+        async function downloadAll() {
+            if(!processedFiles.length) return;
+            const zip = new JSZip();
+            processedFiles.forEach(pf => zip.file(pf.name, pf.blob));
+            zip.generateAsync({type:"blob"}).then(content => { saveAs(content, "Nexus_HEIC_Export.zip"); });
         }
     </script>
 </body>
 </html>
-
-
