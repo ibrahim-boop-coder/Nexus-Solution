@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    
+    <title>HEIC to JPG Fast Converter by Nexus Solution</title>
+    <meta name="description" content="Instantly convert Apple HEIC files to universally compatible JPGs. Developed by Nexus Solution with zero-trust local execution.">
+    <meta name="keywords" content="heic to jpg nexus solution, apple to windows image converter, secure heic to jpg, batch heic to jpg offline">
+    <link rel="canonical" href="https://nexussolution.space/heic-to-jpg"> 
+    
+    <meta property="og:title" content="Nexus Solution | Client-Side HEIC to JPG">
+    <meta property="og:description" content="Enterprise-grade local HEIC processing. No server uploads. Absolute data privacy.">
+    <meta property="og:url" content="https://nexussolution.space/heic-to-jpg">
+    <meta property="og:image" content="https://nexussolution.space/og-image.jpg">
+    <meta name="robots" content="index, follow">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Nexus Solution HEIC to JPG",
+      "author": { "@type": "Organization", "name": "Nexus Solution", "url": "https://nexussolution.space" },
+      "operatingSystem": "Any",
+      "applicationCategory": "BrowserApplication",
+      "description": "An authoritative, zero-trust application developed by Nexus Solution to convert HEIC images to universally compatible JPGs locally."
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { slate: { 950: '#020617' } } } } }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans flex flex-col min-h-screen antialiased selection:bg-cyan-500 selection:text-white">
+
+    <header class="px-6 py-4 border-b border-slate-800/60 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+        <nav class="flex justify-between items-center max-w-7xl mx-auto">
+            <div class="flex items-center gap-2">
+                <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z"></path></svg>
+                <span class="font-bold text-xl tracking-tight">Nexus<span class="text-cyan-400">HEIC</span></span>
+            </div>
+            <div class="text-xs font-mono text-cyan-300 bg-cyan-900/30 px-3 py-1.5 rounded-full border border-cyan-800/50">
+                Nexus Solution Security Utility
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-6 grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <section class="lg:col-span-3 flex flex-col gap-6">
+            
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h1 class="text-3xl font-bold tracking-tight text-white">Universal HEIC to JPG Compiler</h1>
+                    <p class="text-slate-400 text-sm mt-1">Cross-platform compatibility engine by Nexus Solution.</p>
+                </div>
+                <div class="flex bg-slate-800/80 p-1.5 rounded-lg border border-slate-700">
+                    <button id="fmt-jpg" class="px-5 py-2 text-sm font-semibold rounded-md bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition-all" onclick="setFormat('jpeg')">JPG</button>
+                    <button id="fmt-png" class="px-5 py-2 text-sm font-semibold rounded-md text-slate-400 hover:text-slate-200 transition-all border border-transparent" onclick="setFormat('png')">PNG</button>
+                </div>
+            </div>
+
+            <label id="dropzone" class="relative group cursor-pointer h-72 border-2 border-dashed border-slate-700 rounded-2xl flex flex-col items-center justify-center bg-slate-900/40 hover:bg-slate-800/60 hover:border-cyan-500/60 transition-all duration-300">
+                <input type="file" id="fileInput" multiple accept=".heic" class="hidden">
+                <div class="p-5 bg-slate-800 rounded-2xl mb-4 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-300">
+                    <svg class="w-10 h-10 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-100">Drop HEIC payloads here</h3>
+                <p class="text-slate-500 text-sm mt-2 font-mono">100% Client-Side Pipeline.</p>
+            </label>
+
+            <div id="results-container" class="hidden flex-col gap-4 mt-4">
+                <div class="flex justify-between items-center border-b border-slate-800/80 pb-3">
+                    <h2 class="text-lg font-semibold text-cyan-50">Processed Assets</h2>
+                    <button id="btn-download-all" onclick="downloadAll()" class="hidden px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-sm font-bold rounded-lg transition-all">
+                        Download Archive (.zip)
+                    </button>
+                </div>
+                <div id="file-list" class="flex flex-col gap-3"></div>
+            </div>
+
+            <article class="mt-12 bg-slate-900/50 p-8 rounded-2xl border border-slate-800/80 prose prose-invert max-w-none">
+                <h2 class="text-2xl font-bold text-slate-100 mb-4">Nexus Solution Security Architecture</h2>
+                <p class="text-slate-400 mb-6">
+                    Nexus Solution engineered this HEIC utility to address the severe data privacy risks inherent in cloud-based image conversion. Standard operations require users to transmit payloads to remote servers. We have deployed a zero-trust model where WebAssembly processes your binaries locally, ensuring absolute data integrity.
+                </p>
+                <div class="bg-slate-950 p-5 rounded-xl border border-slate-800">
+                    <h3 class="text-lg font-semibold text-cyan-400 mb-2">Cryptographic Safety</h3>
+                    <p class="text-sm text-slate-400">Because files are never transmitted via network protocols, your assets cannot be intercepted. This methodology complies with the highest standards of data protection required by modern enterprises.</p>
+                </div>
+            </article>
+
+        </section>
+        
+        <aside class="hidden lg:flex flex-col gap-6 lg:col-span-1">
+             <div class="w-full bg-slate-900 border border-slate-800 rounded-xl flex items-center justify-center text-slate-600 text-sm min-h-[250px]">
+                 [ Adsterra 300x250 Ad Slot ]
+             </div>
+             <div class="bg-slate-900/50 border border-slate-800 p-5 rounded-xl">
+                <h4 class="text-sm font-bold text-slate-300 uppercase tracking-wider mb-4">Security Specs</h4>
+                <ul class="space-y-3 text-sm text-slate-400">
+                    <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Data Retention: 0s</li>
+                    <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Network I/O: Blocked</li>
+                    <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Logic: WebAssembly</li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="border-t border-slate-800/80 bg-slate-950 mt-12 py-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-slate-500 text-sm font-mono">© 2026 Nexus Solution. Developed for ultimate privacy.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Preset to JPG for this page
+        let currentFormat = 'jpeg';
+        let processedFiles = [];
+        
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('fileInput');
+        const listEl = document.getElementById('file-list');
+        const resultsContainer = document.getElementById('results-container');
+        const btnDownloadAll = document.getElementById('btn-download-all');
+
+        function setFormat(format) {
+            currentFormat = format;
+            const btnJpg = document.getElementById('fmt-jpg');
+            const btnPng = document.getElementById('fmt-png');
+            const activeClasses = ['bg-cyan-500/20', 'text-cyan-300', 'border-cyan-500/30'];
+            const inactiveClasses = ['text-slate-400', 'border-transparent', 'hover:text-slate-200'];
+
+            if(format === 'jpeg') {
+                btnJpg.classList.add(...activeClasses); btnJpg.classList.remove(...inactiveClasses);
+                btnPng.classList.remove(...activeClasses); btnPng.classList.add(...inactiveClasses);
+            } else {
+                btnPng.classList.add(...activeClasses); btnPng.classList.remove(...inactiveClasses);
+                btnJpg.classList.remove(...activeClasses); btnJpg.classList.add(...inactiveClasses);
+            }
+        }
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(e => dropzone.addEventListener(e, preventDefaults, false));
+        function preventDefaults(e) { e.preventDefault(); e.stopPropagation(); }
+        
+        ['dragenter', 'dragover'].forEach(e => dropzone.addEventListener(e, () => dropzone.classList.add('border-cyan-500', 'bg-slate-800/80')));
+        ['dragleave', 'drop'].forEach(e => dropzone.addEventListener(e, () => dropzone.classList.remove('border-cyan-500', 'bg-slate-800/80')));
+
+        dropzone.addEventListener('drop', (e) => handleFiles(e.dataTransfer.files));
+        fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
+
+        async function handleFiles(files) {
+            const heicFiles = Array.from(files).filter(f => f.name.toLowerCase().endsWith('.heic'));
+            if(!heicFiles.length) return alert('Security Policy: Only .HEIC payloads are permitted.');
+
+            resultsContainer.classList.remove('hidden');
+            resultsContainer.classList.add('flex');
+            
+            for (const file of heicFiles) {
+                const fileId = Math.random().toString(36).substring(7);
+                createRow(file.name, fileId);
+                await processFile(file, fileId);
+            }
+            if(processedFiles.length > 1) btnDownloadAll.classList.remove('hidden');
+        }
+
+        function createRow(fileName, fileId) {
+            const row = document.createElement('div');
+            row.id = `row-${fileId}`;
+            row.className = 'flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-xl transition-all hover:border-slate-700';
+            row.innerHTML = `
+                <div class="flex items-center gap-4 overflow-hidden w-full">
+                    <div id="thumb-${fileId}" class="w-12 h-12 bg-slate-950 rounded-lg flex items-center justify-center border border-slate-800 shrink-0">
+                        <div class="w-5 h-5 rounded-full border-2 border-cyan-500 border-t-transparent animate-spin"></div>
+                    </div>
+                    <div class="truncate flex-1">
+                        <p class="text-sm font-medium text-slate-200 truncate pr-4">${fileName}</p>
+                        <p id="status-${fileId}" class="text-xs text-slate-500 mt-1">Decrypting payload...</p>
+                    </div>
+                </div>
+                <a id="dl-${fileId}" class="hidden px-4 py-2 bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 text-sm font-semibold rounded-lg transition-all cursor-pointer shrink-0 ml-4">Save</a>
+            `;
+            listEl.prepend(row);
+        }
+
+        async function processFile(file, fileId) {
+            try {
+                const blob = await heic2any({ blob: file, toType: `image/${currentFormat}`, quality: 0.92 });
+                const newName = file.name.replace(/\.heic$/i, `.${currentFormat === 'jpeg' ? 'jpg' : 'png'}`);
+                const url = URL.createObjectURL(blob);
+                processedFiles.push({ name: newName, blob: blob });
+
+                document.getElementById(`thumb-${fileId}`).innerHTML = `<img src="${url}" class="w-full h-full object-cover rounded-lg">`;
+                const statusEl = document.getElementById(`status-${fileId}`);
+                statusEl.innerHTML = `Output Ready`;
+                statusEl.classList.replace('text-slate-500', 'text-green-400');
+                
+                const dlBtn = document.getElementById(`dl-${fileId}`);
+                dlBtn.href = url; dlBtn.download = newName; dlBtn.classList.remove('hidden');
+            } catch (error) {
+                document.getElementById(`status-${fileId}`).innerText = 'Execution Failed';
+            }
+        }
+
+        async function downloadAll() {
+            if(!processedFiles.length) return;
+            const zip = new JSZip();
+            processedFiles.forEach(pf => zip.file(pf.name, pf.blob));
+            zip.generateAsync({type:"blob"}).then(content => { saveAs(content, "Nexus_HEIC_JPG_Export.zip"); });
+        }
+    </script>
+</body>
+</html>
