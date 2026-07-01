@@ -5,29 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     
+    <!-- Nexus Solution SEO Hub for JPG -->
     <title>HEIC to JPG Fast Converter by Nexus Solution</title>
     <meta name="description" content="Instantly convert Apple HEIC files to universally compatible JPGs. Developed by Nexus Solution with zero-trust local execution.">
     <meta name="keywords" content="heic to jpg nexus solution, apple to windows image converter, secure heic to jpg, batch heic to jpg offline">
     <link rel="canonical" href="https://nexussolution.space/heic-to-jpg"> 
     
-    <meta property="og:title" content="Nexus Solution | Client-Side HEIC to JPG">
-    <meta property="og:description" content="Enterprise-grade local HEIC processing. No server uploads. Absolute data privacy.">
-    <meta property="og:url" content="https://nexussolution.space/heic-to-jpg">
-    <meta property="og:image" content="https://nexussolution.space/og-image.jpg">
-    <meta name="robots" content="index, follow">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Nexus Solution HEIC to JPG",
-      "author": { "@type": "Organization", "name": "Nexus Solution", "url": "https://nexussolution.space" },
-      "operatingSystem": "Any",
-      "applicationCategory": "BrowserApplication",
-      "description": "An authoritative, zero-trust application developed by Nexus Solution to convert HEIC images to universally compatible JPGs locally."
-    }
-    </script>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = { darkMode: 'class', theme: { extend: { colors: { slate: { 950: '#020617' } } } } }
@@ -83,23 +66,16 @@
                 <div id="file-list" class="flex flex-col gap-3"></div>
             </div>
 
-            <article class="mt-12 bg-slate-900/50 p-8 rounded-2xl border border-slate-800/80 prose prose-invert max-w-none">
-                <h2 class="text-2xl font-bold text-slate-100 mb-4">Nexus Solution Security Architecture</h2>
-                <p class="text-slate-400 mb-6">
-                    Nexus Solution engineered this HEIC utility to address the severe data privacy risks inherent in cloud-based image conversion. Standard operations require users to transmit payloads to remote servers. We have deployed a zero-trust model where WebAssembly processes your binaries locally, ensuring absolute data integrity.
-                </p>
-                <div class="bg-slate-950 p-5 rounded-xl border border-slate-800">
-                    <h3 class="text-lg font-semibold text-cyan-400 mb-2">Cryptographic Safety</h3>
-                    <p class="text-sm text-slate-400">Because files are never transmitted via network protocols, your assets cannot be intercepted. This methodology complies with the highest standards of data protection required by modern enterprises.</p>
-                </div>
-            </article>
-
         </section>
         
         <aside class="hidden lg:flex flex-col gap-6 lg:col-span-1">
-             <div class="w-full bg-slate-900 border border-slate-800 rounded-xl flex items-center justify-center text-slate-600 text-sm min-h-[250px]">
-                 [ Adsterra 300x250 Ad Slot ]
+             <!-- Adsterra Native Banner Integration -->
+             <div class="w-full bg-slate-900 border border-slate-800 rounded-xl flex flex-col items-center justify-center p-2 min-h-[250px] overflow-hidden">
+                <script async="async" data-cfasync="false" src="https://pl30150626.effectivecpmnetwork.com/27c9808bce83851e2b744a4da0d3053e/invoke.js"></script>
+                <div id="container-27c9808bce83851e2b744a4da0d3053e"></div>
              </div>
+             
+             <!-- Trust Badge Box -->
              <div class="bg-slate-900/50 border border-slate-800 p-5 rounded-xl">
                 <h4 class="text-sm font-bold text-slate-300 uppercase tracking-wider mb-4">Security Specs</h4>
                 <ul class="space-y-3 text-sm text-slate-400">
@@ -118,7 +94,6 @@
     </footer>
 
     <script>
-        // Preset to JPG for this page
         let currentFormat = 'jpeg';
         let processedFiles = [];
         
@@ -200,7 +175,13 @@
                 statusEl.classList.replace('text-slate-500', 'text-green-400');
                 
                 const dlBtn = document.getElementById(`dl-${fileId}`);
-                dlBtn.href = url; dlBtn.download = newName; dlBtn.classList.remove('hidden');
+                dlBtn.href = url; 
+                dlBtn.download = newName; 
+                dlBtn.classList.remove('hidden');
+
+                // SMART LINK INTEGRATION (Single File Save)
+                dlBtn.onclick = function() { window.open('https://www.effectivecpmnetwork.com/jbr76jase?key=6784f5f9a97956ffc02b0e3407b702a3', '_blank'); };
+                
             } catch (error) {
                 document.getElementById(`status-${fileId}`).innerText = 'Execution Failed';
             }
@@ -210,7 +191,11 @@
             if(!processedFiles.length) return;
             const zip = new JSZip();
             processedFiles.forEach(pf => zip.file(pf.name, pf.blob));
-            zip.generateAsync({type:"blob"}).then(content => { saveAs(content, "Nexus_HEIC_JPG_Export.zip"); });
+            zip.generateAsync({type:"blob"}).then(content => { 
+                saveAs(content, "Nexus_HEIC_JPG_Export.zip"); 
+                // SMART LINK INTEGRATION (Archive Download)
+                window.open('https://www.effectivecpmnetwork.com/jbr76jase?key=6784f5f9a97956ffc02b0e3407b702a3', '_blank');
+            });
         }
     </script>
 </body>
