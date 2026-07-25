@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
@@ -23,6 +23,10 @@
     <script defer src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    
+    <!-- Adsterra Social Bar / Native Scripts -->
+    <script src="https://pl30533884.effectivecpmnetwork.com/8e/c0/71/8ec07134575a39bee6137126e8791b5a.js"></script>
+    <script src="https://pl30533885.effectivecpmnetwork.com/18/1e/16/181e1636dcb17be5203e0d37600029e2.js"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans flex flex-col min-h-screen antialiased selection:bg-cyan-500 selection:text-white">
 
@@ -49,6 +53,22 @@
                 <div class="flex bg-slate-800/80 p-1.5 rounded-lg border border-slate-700">
                     <button id="fmt-jpg" class="px-5 py-2 text-sm font-semibold rounded-md bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition-all" onclick="setFormat('jpeg')">JPG</button>
                     <button id="fmt-png" class="px-5 py-2 text-sm font-semibold rounded-md text-slate-400 hover:text-slate-200 transition-all border border-transparent" onclick="setFormat('png')">PNG</button>
+                </div>
+            </div>
+
+            <!-- Adsterra 320x50 Banner (Mobile) -->
+            <div class="w-full flex justify-center py-2 lg:hidden">
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-2 overflow-hidden">
+                    <script>
+                      atOptions = {
+                        'key' : 'cc0552b60527e1c4200c6ca5593a5a91',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                      };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/cc0552b60527e1c4200c6ca5593a5a91/invoke.js"></script>
                 </div>
             </div>
 
@@ -85,6 +105,20 @@
              <div class="w-full bg-slate-900 border border-slate-800 rounded-xl flex flex-col items-center justify-center p-2 min-h-[250px] overflow-hidden">
                 <script async="async" data-cfasync="false" src="https://pl30150626.effectivecpmnetwork.com/27c9808bce83851e2b744a4da0d3053e/invoke.js"></script>
                 <div id="container-27c9808bce83851e2b744a4da0d3053e"></div>
+             </div>
+
+             <!-- Adsterra 320x50 Banner (Desktop) -->
+             <div class="w-full bg-slate-900 border border-slate-800 rounded-xl flex flex-col items-center justify-center p-3 overflow-hidden">
+                <script>
+                  atOptions = {
+                    'key' : 'cc0552b60527e1c4200c6ca5593a5a91',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highperformanceformat.com/cc0552b60527e1c4200c6ca5593a5a91/invoke.js"></script>
              </div>
              
              <!-- Trust Badge Box -->
@@ -177,11 +211,11 @@
         async function processFile(file, fileId) {
             try {
                 const blob = await heic2any({ blob: file, toType: `image/${currentFormat}`, quality: 0.92 });
-                const newName = file.name.replace(/\.heic$/i, `.${currentFormat === 'jpeg' ? 'jpg' : 'png'}`);
+                const newName = file.name.replace(/\.heic\( /i, `. \){currentFormat === 'jpeg' ? 'jpg' : 'png'}`);
                 const url = URL.createObjectURL(blob);
                 processedFiles.push({ name: newName, blob: blob });
 
-                document.getElementById(`thumb-${fileId}`).innerHTML = `<img src="${url}" class="w-full h-full object-cover rounded-lg">`;
+                document.getElementById(`thumb-\( {fileId}`).innerHTML = `<img src=" \){url}" class="w-full h-full object-cover rounded-lg">`;
                 const statusEl = document.getElementById(`status-${fileId}`);
                 statusEl.innerHTML = `Output Ready`;
                 statusEl.classList.replace('text-slate-500', 'text-green-400');
