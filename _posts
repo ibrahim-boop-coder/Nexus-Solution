@@ -1,1 +1,44 @@
+# What Is Cyber Security?
+
+Cyber security is the practice of protecting computers, networks, and data from unauthorized access, damage, or theft. That's the textbook definition, and it's accurate, but it doesn't tell you much on its own. To actually understand what cyber security means in practice, it helps to look at what it's protecting, who it's protecting it from, and how.
+
+## What's actually being protected
+
+Every device connected to a network holds something worth protecting: personal photos, banking details, business records, medical files, login credentials, source code, customer databases. Cyber security exists because almost everything valuable today is stored or transmitted digitally, and digital systems can be accessed remotely, which makes them a target in a way a locked filing cabinet never was.
+
+The three things security professionals talk about protecting are usually summarized as confidentiality, integrity, and availability — often called the CIA triad. Confidentiality means only the right people can see the data. Integrity means the data hasn't been altered without authorization. Availability means the systems and data are accessible when they're needed. An attack can target any one of these: stealing data breaks confidentiality, tampering with records breaks integrity, and a denial-of-service attack breaks availability by knocking a system offline.
+
+## Who cyber security defends against
+
+Threats come from a wide range of sources, and they're not all the stereotypical hooded figure in a dark room. Cybercriminals looking for financial gain run large-scale phishing and ransomware operations. Insiders — employees or contractors with legitimate access — sometimes misuse that access, intentionally or by mistake. Nation-state groups target infrastructure and corporations for espionage or disruption. And a large share of security incidents come from ordinary human error: a weak password, a misconfigured server, a link clicked without thinking.
+
+That last category matters more than people expect. Most breaches aren't the result of some brilliant, undetectable attack. They're the result of a basic gap — an unpatched system, a reused password, a permission that should have been revoked months earlier.
+
+## The main areas of cyber security
+
+Cyber security isn't one skill; it's a collection of specialties that overlap.
+
+**Network security** focuses on protecting the infrastructure data travels through — firewalls, intrusion detection systems, and secure network design all fall here.
+
+**Application security** deals with finding and fixing vulnerabilities in the software itself, before and after it's deployed.
+
+**Information security** is broader, covering the policies and processes that protect data regardless of where it lives.
+
+**Cloud security** addresses the specific risks of storing data and running services on third-party infrastructure like AWS, Azure, or Google Cloud.
+
+**Incident response** is what happens after something goes wrong — containing an attack, figuring out what was accessed, and restoring normal operations.
+
+**Penetration testing** and **ethical hacking** flip the perspective: instead of defending, these roles simulate real attacks to find weaknesses before someone with bad intentions does.
+
+Most people working in the field specialize in one or two of these areas rather than trying to cover all of them, and that's a reasonable approach — the field is too broad for anyone to be equally strong everywhere.
+
+## Why it matters more than it used to
+
+Twenty years ago, a security failure usually meant an inconvenience. Today, it can mean a hospital losing access to patient records, a bank freezing customer accounts, or a company shutting down entirely because it can't recover from a ransomware attack. As more of daily life — banking, healthcare, communication, work — moves onto digital systems, the cost of those systems failing or being compromised has gone up correspondingly.
+
+That's also why cyber security has grown from a niche IT function into its own career field, with dedicated roles, certifications, and university programs. Organizations aren't just patching software anymore; they're building entire teams around anticipating, detecting, and responding to threats.
+
+## The short version
+
+Cyber security is the ongoing work of keeping digital systems and the data inside them safe from people, groups, or mistakes that could compromise them. It's not a single tool or a one-time setup — it's a continuous practice, because the threats keep changing and the systems being protected keep growing more complex. Understanding the basics of what it covers is the first real step toward either protecting your own systems or building a career in the field.
 
