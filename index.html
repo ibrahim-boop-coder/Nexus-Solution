@@ -3,157 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Ibrahim | Offensive Cybersecurity & Engineering</title>
-    <meta name="description" content="Professional portfolio and cybersecurity insights by Muhammad Ibrahim, Founder of Deffonix.">
+    <title>Nexussolution.space | Cybersecurity Concepts Explained</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Cybersecurity articles and tutorials for beginners and students. We break down concepts like penetration testing, bug bounties, and network security properly.">
+    <meta name="author" content="Salman Ali">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Tailwind CSS & Typography Plugin for beautiful articles -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cyber: '#0ea5e9', // Modern blue accent
-                        dark: '#0f172a',  // Slate 900 background
-                        darker: '#020617' // Slate 950 deep background
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
 </head>
-<body class="bg-darker text-slate-300 font-sans antialiased selection:bg-cyber selection:text-white">
+<body class="bg-gray-50 text-gray-900 font-sans antialiased selection:bg-blue-200">
 
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-dark/90 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0 flex items-center">
-                    <span class="text-2xl font-bold text-white tracking-wide">
-                        Deffonix<span class="text-cyber">.</span>
-                    </span>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="text-sm font-medium hover:text-cyber transition-colors">About</a>
-                    <a href="#tools" class="text-sm font-medium hover:text-cyber transition-colors">Web Tools</a>
-                    <a href="#insights" class="text-sm font-medium hover:text-cyber transition-colors">Insights & Articles</a>
-                    <a href="mailto:nexussolution9030@gmail.com" class="text-sm font-medium bg-cyber text-white px-4 py-2 rounded-md hover:bg-sky-600 transition-colors">Contact</a>
-                </div>
-            </div>
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="text-2xl font-black tracking-tight text-gray-900">
+                Nexussolution<span class="text-blue-600">.space</span>
+            </a>
+            <nav class="hidden md:flex space-x-8 font-medium text-sm text-gray-600">
+                <a href="#about" class="hover:text-blue-600 transition">About</a>
+                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="about" class="relative py-20 lg:py-32 overflow-hidden">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-3xl">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6">
-                    Muhammad Ibrahim
-                </h1>
-                <h2 class="text-xl md:text-2xl text-cyber font-medium mb-6">
-                    Offensive Cybersecurity Engineer & Full-Stack Developer
-                </h2>
-                <p class="text-lg text-slate-400 mb-8 leading-relaxed">
-                    Founder and technical leader at Deffonix, specializing in automated vulnerability assessments, B2B defense frameworks, and robust web architecture. Bridging the gap between secure infrastructure and modern software development.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#insights" class="bg-white text-darker font-bold px-6 py-3 rounded-md hover:bg-slate-200 transition-colors">
-                        Read My Articles
-                    </a>
-                    <a href="#tools" class="border border-slate-600 text-white px-6 py-3 rounded-md hover:border-cyber hover:text-cyber transition-colors">
-                        Explore Tools
-                    </a>
-                </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row gap-12">
+        
+        <!-- Sticky Sidebar Navigation (TOC) -->
+        <aside class="md:w-1/4">
+            <div class="sticky top-24">
+                <h3 class="text-xs font-bold uppercase text-gray-400 tracking-wider mb-4">Latest Articles</h3>
+                <ul class="space-y-3 text-sm font-medium text-gray-600">
+                    <li><a href="#data-protection" class="hover:text-blue-600 transition">How to Protect Your Data</a></li>
+                    <li><a href="#ethical-hacking" class="hover:text-blue-600 transition">What Is Ethical Hacking?</a></li>
+                    <li><a href="#penetration-testing" class="hover:text-blue-600 transition">What Is Penetration Testing?</a></li>
+                    <li><a href="#bug-bounty" class="hover:text-blue-600 transition">What Is a Bug Bounty?</a></li>
+                </ul>
             </div>
-        </div>
-        <!-- Background Gradient Graphic -->
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-cyber opacity-10 blur-3xl pointer-events-none"></div>
-    </section>
+        </aside>
 
-    <!-- Open Source Tools Section -->
-    <section id="tools" class="py-20 bg-dark border-y border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-2">Client-Side Web Utilities</h2>
-            <p class="text-slate-400 mb-10">Privacy-focused tools built to process data directly in your browser.</p>
-            
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- Tool 1: HEIC to PNG -->
-                <a href="heic-to-png.html" class="block p-6 rounded-xl border border-slate-700 bg-darker hover:border-cyber hover:shadow-[0_0_15px_rgba(14,165,233,0.15)] transition-all group">
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyber transition-colors">NexusHEIC &rarr; PNG</h3>
-                    <p class="text-sm text-slate-400">Convert Apple HEIC images to standard PNG format instantly. 100% client-side execution ensures your files never leave your device.</p>
-                </a>
+        <!-- Main Article Content -->
+        <main class="md:w-3/4 space-y-20">
 
-                <!-- Tool 2: HEIC to JPG -->
-                <a href="heic-to-jpg.html" class="block p-6 rounded-xl border border-slate-700 bg-darker hover:border-cyber hover:shadow-[0_0_15px_rgba(14,165,233,0.15)] transition-all group">
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyber transition-colors">NexusHEIC &rarr; JPG</h3>
-                    <p class="text-sm text-slate-400">Fast, secure conversion from HEIC to JPG. No server uploads required, preserving your privacy and bandwidth.</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Articles & Insights Section -->
-    <section id="insights" class="py-20 bg-darker">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-2">Cybersecurity Insights</h2>
-            <p class="text-slate-400 mb-10">Breaking down security concepts, penetration testing methodologies, and defensive strategies.</p>
-            
-            <div class="grid md:grid-cols-3 gap-6">
+            <!-- Article 1 -->
+            <article id="data-protection" class="prose prose-lg prose-blue max-w-none bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100">
+                <h1>How to Protect Your Data: A Practical Guide</h1>
+                <p class="lead">Most data loss and data theft doesn't happen through some sophisticated, unstoppable attack[span_0](start_span)[span_0](end_span). It happens through a handful of predictable gaps[span_1](start_span)[span_1](end_span).</p>
                 
-                <!-- Article Card 1 -->
-                <div class="bg-dark rounded-xl overflow-hidden border border-slate-800 flex flex-col">
-                    <div class="p-6 flex-1">
-                        <span class="text-xs font-bold uppercase tracking-wider text-cyber mb-2 block">Defense</span>
-                        <h3 class="text-xl font-bold text-white mb-3">How to Protect Your Data</h3>
-                        <p class="text-sm text-slate-400 line-clamp-3">Most data loss doesn't happen through sophisticated attacks, but predictable gaps like reused passwords and lack of backups.</p>
-                    </div>
-                    <div class="px-6 py-4 border-t border-slate-800">
-                        <a href="#" class="text-sm font-medium text-cyber hover:text-white transition-colors">Read Article &rarr;</a>
-                    </div>
-                </div>
+                <h2>Back up your data - and actually test the backup</h2>
+                <p>This is the single most important thing on this list, and the one most people skip until after they've lost something[span_2](start_span)[span_2](end_span). The 3-2-1 rule is a reasonable standard to aim for: 3 copies of your data, on 2 different types of storage, with 1 copy kept somewhere physically separate[span_3](start_span)[span_3](end_span).</p>
 
-                <!-- Article Card 2 -->
-                <div class="bg-dark rounded-xl overflow-hidden border border-slate-800 flex flex-col">
-                    <div class="p-6 flex-1">
-                        <span class="text-xs font-bold uppercase tracking-wider text-cyber mb-2 block">Offensive</span>
-                        <h3 class="text-xl font-bold text-white mb-3">What is Penetration Testing?</h3>
-                        <p class="text-sm text-slate-400 line-clamp-3">An authorized, simulated attack to find security weaknesses before someone without permission does.</p>
-                    </div>
-                    <div class="px-6 py-4 border-t border-slate-800">
-                        <a href="#" class="text-sm font-medium text-cyber hover:text-white transition-colors">Read Article &rarr;</a>
-                    </div>
-                </div>
+                <h2>Use unique passwords for every account</h2>
+                <p>Reusing a password across multiple accounts means that if one service you use gets breached, an attacker can try that same password on your email, banking, and social media accounts, too[span_4](start_span)[span_4](end_span). A password manager solves this practically[span_5](start_span)[span_5](end_span).</p>
 
-                <!-- Article Card 3 -->
-                <div class="bg-dark rounded-xl overflow-hidden border border-slate-800 flex flex-col">
-                    <div class="p-6 flex-1">
-                        <span class="text-xs font-bold uppercase tracking-wider text-cyber mb-2 block">Career</span>
-                        <h3 class="text-xl font-bold text-white mb-3">What is a Bug Bounty?</h3>
-                        <p class="text-sm text-slate-400 line-clamp-3">How organizations invite independent security researchers to find and report vulnerabilities in exchange for rewards.</p>
-                    </div>
-                    <div class="px-6 py-4 border-t border-slate-800">
-                        <a href="#" class="text-sm font-medium text-cyber hover:text-white transition-colors">Read Article &rarr;</a>
-                    </div>
-                </div>
+                <h2>Turn on two-factor authentication (2FA)</h2>
+                <p>2FA requires a second piece of verification beyond your password - usually a code from an app, a text message, or a physical security key[span_6](start_span)[span_6](end_span). Prioritize enabling this on your email account first[span_7](start_span)[span_7](end_span).</p>
+                
+                <h2>The short version</h2>
+                <p>Protecting your data comes down to a small number of habits done consistently: back up your data and actually test the backup, use unique passwords through a password manager, turn on two-factor authentication, keep software updated, encrypt your devices, and stay alert to phishing[span_8](start_span)[span_8](end_span).</p>
+            </article>
 
-            </div>
-        </div>
-    </section>
+            <!-- Article 2 -->
+            <article id="ethical-hacking" class="prose prose-lg prose-blue max-w-none bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100">
+                <h1>What Is Ethical Hacking?</h1>
+                <p>Ethical hacking is the practice of deliberately probing computer systems, networks, or applications for security weaknesses - with permission, and with the goal of fixing what's found rather than exploiting it[span_9](start_span)[span_9](end_span).</p>
+                
+                <h2>Why organizations pay people to hack them</h2>
+                <p>If a vulnerability exists in a piece of software or a network configuration, someone is going to find it eventually[span_10](start_span)[span_10](end_span). Ethical hackers are hired to find those weaknesses first, document exactly how they got in, and hand that information to the organization so it can be fixed before a real attacker stumbles onto the same gap[span_11](start_span)[span_11](end_span).</p>
+
+                <h2>What separates "ethical" from "illegal"</h2>
+                <ul>
+                    <li><strong>Authorization:</strong> A written agreement that explicitly permits testing specific systems[span_12](start_span)[span_12](end_span).</li>
+                    <li><strong>Disclosure:</strong> Findings go to the organization that owns the system, not to a forum, a buyer, or the public, before the issue is fixed[span_13](start_span)[span_13](end_span).</li>
+                    <li><strong>Non-destructive intent:</strong> The goal is to demonstrate that a weakness exists and how it could be exploited, not to cause the damage a real attacker would[span_14](start_span)[span_14](end_span).</li>
+                </ul>
+            </article>
+
+            <!-- About Section -->
+            <section id="about" class="prose prose-lg max-w-none bg-blue-50 p-8 md:p-12 rounded-2xl border border-blue-100">
+                <h2>About Nexussolution.space</h2>
+                <p>Nexussolution.space is run by one person: me, Salman Ali[span_15](start_span)[span_15](end_span). I'm a cybersecurity student, currently in the process of building my knowledge through structured coursework[span_16](start_span)[span_16](end_span). Over the past 1 to 3 years I've completed more than 10 certifications through CAICO covering a range of cybersecurity topics[span_17](start_span)[span_17](end_span).</p>
+                <p>This site is written for people earlier in their cybersecurity journey - students, career-changers, hobbyists, or anyone trying to build a genuine understanding of security concepts rather than memorize a checklist[span_18](start_span)[span_18](end_span).</p>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="prose prose-lg max-w-none bg-gray-900 text-white p-8 md:p-12 rounded-2xl shadow-lg">
+                <h2 class="text-white">Contact</h2>
+                <p class="text-gray-300">Nexussolution.space is a one-person project, and I read every message that comes in myself[span_19](start_span)[span_19](end_span).</p>
+                <p><strong>Email:</strong> <a href="mailto:nexussolution9030@gmail.com" class="text-blue-400">nexussolution9030@gmail.com</a>[span_20](start_span)[span_20](end_span)</p>
+                <p class="text-gray-400 text-sm mt-4"><em>Note: I'm a student, not a professional security consultant, so I'm not able to take on paid security work or respond to active incident requests[span_21](start_span)[span_21](end_span).</em></p>
+            </section>
+
+        </main>
+    </div>
 
     <!-- Footer -->
-    <footer class="bg-dark py-10 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-4 md:mb-0">
-                <span class="text-xl font-bold text-white tracking-wide">Deffonix<span class="text-cyber">.</span></span>
-                <p class="text-xs text-slate-500 mt-1">&copy; 2026 Muhammad Ibrahim. All rights reserved.</p>
-            </div>
-            <div class="flex space-x-6">
-                <a href="https://github.com/ibrahim-boop-coder" target="_blank" class="text-slate-400 hover:text-white transition-colors">
-                    GitHub
-                </a>
-                <a href="#" class="text-slate-400 hover:text-white transition-colors">
-                    LinkedIn
-                </a>
-            </div>
-        </div>
+    <footer class="bg-white border-t border-gray-200 mt-12 py-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Nexussolution.space. Written by Salman Ali.</p>
     </footer>
 
 </body>
