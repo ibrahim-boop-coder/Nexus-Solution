@@ -1,16 +1,160 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Ibrahim | Offensive Cybersecurity & Engineering</title>
+    <meta name="description" content="Professional portfolio and cybersecurity insights by Muhammad Ibrahim, Founder of Deffonix.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: '#0ea5e9', // Modern blue accent
+                        dark: '#0f172a',  // Slate 900 background
+                        darker: '#020617' // Slate 950 deep background
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-darker text-slate-300 font-sans antialiased selection:bg-cyber selection:text-white">
 
-<h1>Nexus Solution Security Blog</h1>
-<p>Insights on Vulnerability Assessments, Penetration Testing (VAPT), and Custom Software Architecture.</p>
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-dark/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-white tracking-wide">
+                        Deffonix<span class="text-cyber">.</span>
+                    </span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-sm font-medium hover:text-cyber transition-colors">About</a>
+                    <a href="#tools" class="text-sm font-medium hover:text-cyber transition-colors">Web Tools</a>
+                    <a href="#insights" class="text-sm font-medium hover:text-cyber transition-colors">Insights & Articles</a>
+                    <a href="mailto:nexussolution9030@gmail.com" class="text-sm font-medium bg-cyber text-white px-4 py-2 rounded-md hover:bg-sky-600 transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-<h2>Recent Writeups</h2>
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%B %d, %Y" }}
-    </li>
-  {% endfor %}
-</ul>
+    <!-- Hero Section -->
+    <section id="about" class="relative py-20 lg:py-32 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6">
+                    Muhammad Ibrahim
+                </h1>
+                <h2 class="text-xl md:text-2xl text-cyber font-medium mb-6">
+                    Offensive Cybersecurity Engineer & Full-Stack Developer
+                </h2>
+                <p class="text-lg text-slate-400 mb-8 leading-relaxed">
+                    Founder and technical leader at Deffonix, specializing in automated vulnerability assessments, B2B defense frameworks, and robust web architecture. Bridging the gap between secure infrastructure and modern software development.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#insights" class="bg-white text-darker font-bold px-6 py-3 rounded-md hover:bg-slate-200 transition-colors">
+                        Read My Articles
+                    </a>
+                    <a href="#tools" class="border border-slate-600 text-white px-6 py-3 rounded-md hover:border-cyber hover:text-cyber transition-colors">
+                        Explore Tools
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Background Gradient Graphic -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-cyber opacity-10 blur-3xl pointer-events-none"></div>
+    </section>
 
+    <!-- Open Source Tools Section -->
+    <section id="tools" class="py-20 bg-dark border-y border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-2">Client-Side Web Utilities</h2>
+            <p class="text-slate-400 mb-10">Privacy-focused tools built to process data directly in your browser.</p>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Tool 1: HEIC to PNG -->
+                <a href="heic-to-png.html" class="block p-6 rounded-xl border border-slate-700 bg-darker hover:border-cyber hover:shadow-[0_0_15px_rgba(14,165,233,0.15)] transition-all group">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyber transition-colors">NexusHEIC &rarr; PNG</h3>
+                    <p class="text-sm text-slate-400">Convert Apple HEIC images to standard PNG format instantly. 100% client-side execution ensures your files never leave your device.</p>
+                </a>
+
+                <!-- Tool 2: HEIC to JPG -->
+                <a href="heic-to-jpg.html" class="block p-6 rounded-xl border border-slate-700 bg-darker hover:border-cyber hover:shadow-[0_0_15px_rgba(14,165,233,0.15)] transition-all group">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyber transition-colors">NexusHEIC &rarr; JPG</h3>
+                    <p class="text-sm text-slate-400">Fast, secure conversion from HEIC to JPG. No server uploads required, preserving your privacy and bandwidth.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles & Insights Section -->
+    <section id="insights" class="py-20 bg-darker">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-2">Cybersecurity Insights</h2>
+            <p class="text-slate-400 mb-10">Breaking down security concepts, penetration testing methodologies, and defensive strategies.</p>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <!-- Article Card 1 -->
+                <div class="bg-dark rounded-xl overflow-hidden border border-slate-800 flex flex-col">
+                    <div class="p-6 flex-1">
+                        <span class="text-xs font-bold uppercase tracking-wider text-cyber mb-2 block">Defense</span>
+                        <h3 class="text-xl font-bold text-white mb-3">How to Protect Your Data</h3>
+                        <p class="text-sm text-slate-400 line-clamp-3">Most data loss doesn't happen through sophisticated attacks, but predictable gaps like reused passwords and lack of backups.</p>
+                    </div>
+                    <div class="px-6 py-4 border-t border-slate-800">
+                        <a href="#" class="text-sm font-medium text-cyber hover:text-white transition-colors">Read Article &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Article Card 2 -->
+                <div class="bg-dark rounded-xl overflow-hidden border border-slate-800 flex flex-col">
+                    <div class="p-6 flex-1">
+                        <span class="text-xs font-bold uppercase tracking-wider text-cyber mb-2 block">Offensive</span>
+                        <h3 class="text-xl font-bold text-white mb-3">What is Penetration Testing?</h3>
+                        <p class="text-sm text-slate-400 line-clamp-3">An authorized, simulated attack to find security weaknesses before someone without permission does.</p>
+                    </div>
+                    <div class="px-6 py-4 border-t border-slate-800">
+                        <a href="#" class="text-sm font-medium text-cyber hover:text-white transition-colors">Read Article &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Article Card 3 -->
+                <div class="bg-dark rounded-xl overflow-hidden border border-slate-800 flex flex-col">
+                    <div class="p-6 flex-1">
+                        <span class="text-xs font-bold uppercase tracking-wider text-cyber mb-2 block">Career</span>
+                        <h3 class="text-xl font-bold text-white mb-3">What is a Bug Bounty?</h3>
+                        <p class="text-sm text-slate-400 line-clamp-3">How organizations invite independent security researchers to find and report vulnerabilities in exchange for rewards.</p>
+                    </div>
+                    <div class="px-6 py-4 border-t border-slate-800">
+                        <a href="#" class="text-sm font-medium text-cyber hover:text-white transition-colors">Read Article &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-10 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="text-xl font-bold text-white tracking-wide">Deffonix<span class="text-cyber">.</span></span>
+                <p class="text-xs text-slate-500 mt-1">&copy; 2026 Muhammad Ibrahim. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="https://github.com/ibrahim-boop-coder" target="_blank" class="text-slate-400 hover:text-white transition-colors">
+                    GitHub
+                </a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
